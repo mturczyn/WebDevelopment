@@ -8526,11 +8526,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mi\\Desktop\\CSharp\\ASP.NET\\MvcMovie\\MvcMovie\\MvcMovie.csproj",
+      "projectUniqueName": "C:\\Users\\Mi\\Desktop\\Webówka\\ASP.NET\\MvcMovie\\MvcMovie\\MvcMovie.csproj",
       "projectName": "MvcMovie",
-      "projectPath": "C:\\Users\\Mi\\Desktop\\CSharp\\ASP.NET\\MvcMovie\\MvcMovie\\MvcMovie.csproj",
+      "projectPath": "C:\\Users\\Mi\\Desktop\\Webówka\\ASP.NET\\MvcMovie\\MvcMovie\\MvcMovie.csproj",
       "packagesPath": "C:\\Users\\Mi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mi\\Desktop\\CSharp\\ASP.NET\\MvcMovie\\MvcMovie\\obj\\",
+      "outputPath": "C:\\Users\\Mi\\Desktop\\Webówka\\ASP.NET\\MvcMovie\\MvcMovie\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

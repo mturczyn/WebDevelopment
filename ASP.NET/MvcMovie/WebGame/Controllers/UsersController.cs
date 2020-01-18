@@ -33,7 +33,7 @@ namespace WebGame.Controllers
       user.UserToRole.Add(new UserToRole() { User = user, Role = role });
       _context.User.Add(user);
       _context.SaveChanges();
-      return View("Index", _context.User.ToList());
+      return View("~/Views/Home/Index");
     }
   }
 }

@@ -21,8 +21,8 @@
                 <input asp-for="LastName" class="form-control" />
                 <span asp-validation-for="LastName" class="text-danger"></span>
             </div>
-            <div>
-                <select id="roleId" name="roleId" style="width: 100%">
+            <div class="form-group">
+                <select id="roleId" name="roleId" class="form-group-sm form-control" height: 100px">
                     @foreach (var role in (List<Role>)ViewBag.Roles)
                     {
                         <option value="@role.Id">@role.RoleName</option>

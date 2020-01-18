@@ -8528,11 +8528,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mi\\Desktop\\CSharp\\ASP.NET\\MvcMovie\\WebGame\\WebGame.csproj",
+      "projectUniqueName": "C:\\Users\\Mi\\Desktop\\Webówka\\ASP.NET\\MvcMovie\\WebGame\\WebGame.csproj",
       "projectName": "WebGame",
-      "projectPath": "C:\\Users\\Mi\\Desktop\\CSharp\\ASP.NET\\MvcMovie\\WebGame\\WebGame.csproj",
+      "projectPath": "C:\\Users\\Mi\\Desktop\\Webówka\\ASP.NET\\MvcMovie\\WebGame\\WebGame.csproj",
       "packagesPath": "C:\\Users\\Mi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mi\\Desktop\\CSharp\\ASP.NET\\MvcMovie\\WebGame\\obj\\",
+      "outputPath": "C:\\Users\\Mi\\Desktop\\Webówka\\ASP.NET\\MvcMovie\\WebGame\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -1,0 +1,5 @@
+Żeby miec możliwość konfiguracji IIS, należy zaisntalować w funkcjach systemu (Windows features w Dodaj Usuń program w paneliu sterowania) Internetowe systemy informacyjny (czy coś takego).
+
+W manadźerze dodać należy stronę internetową (pod witrynami - dodaj witrynę...). Jako folder należy tam wskazać folder, do którego publikujemy aplikacje.
+Od strony Visuala: należy dać publikuj... i dać do folderu, na który wskazuje nasza witryna. Należy pamiętać aby dodać web.config bo nie jest on dodawany domyślnie.
+Potem należy jeszcze pamiętać o uprawnieniach, w manadżerze IISa można wskazać pod jakim użytkownikiem będzie uzyskiwany dostęp do katalogu aplikacji i również należy temu użytkownikowi nadać odpowiednie uprawnienia.
