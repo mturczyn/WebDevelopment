@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>CSS counters</title>
+    <style>
+        body {
+            /*create a counter named section*/
+            counter-reset: section;
+        }
+
+        h2::before {
+            /*do operations with counter named section*/
+            counter-increment: section;
+            content: "Section " counter(section) ": ";
+        }
+
+        h3 {
+            counter-reset: h3cnt;
+        }
+
+        p::before {
+            counter-increment: h3cnt;
+            content: "Paragraph no. " counter(h3cnt) " ";
+        }
+    </style>
+</head>
+<body>
+    <h1>Counters in CSS</h1>
+    <h2>First counter</h2>
+    <h2>Second counter</h2>
+    <h2>etc.</h2>
+
+    <h3>First h3</h3>
+    <p>Some text.</p>
+    <p>Some text.</p>
+
+    <h3>Second h3</h3>
+    <p>Some text.</p>
+
+    <h3>Third h3</h3>
+    <p>Some text.</p>
+    <p>Some text.</p>
+    <p>Some text.</p>
+
+    <div style="border: 1px solid black; height: 30vmax">Height is relative to 1% of viewport's* larger dimension</div>
+</body>
+</html>

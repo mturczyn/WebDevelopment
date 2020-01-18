@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Styles continuation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--bootstrap-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!--google-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesPresentationPart2.css" />
+</head>
+<body>
+
+    <h1 style="color: red;">Responsive and non-responsive block elements with max-width attribue</h1>
+    <div class="ex1">This div element has width: 500px;</div>
+    <br>
+
+    <div class="ex2">This div element has max-width: 500px;</div>
+
+    <p>
+        <strong>Tip:</strong> Drag the browser window to smaller than 500px wide, to see the difference between
+        the two divs!
+    </p>
+
+    <h1 style="color: red;">Positioning elements</h1>
+
+    <div class="static">
+        This div element has position: static;
+    </div>
+
+    <div class="relative">
+        This div element has position: relative;
+    </div>
+
+    <div class="fixed">
+        This div element has position: fixed;
+    </div>
+
+    <h2>position: absolute;</h2>
+
+    <p>An element with position: absolute; is positioned relative to the nearest positioned ancestor (instead of positioned relative to the viewport, like fixed):</p>
+
+    <div class="relative">
+        This div element has position: relative;
+    </div>
+
+    <p>Try to <b>scroll</b> inside this frame to understand how sticky positioning works.</p>
+    <p>Note: IE/Edge 15 and earlier versions do not support sticky position.</p>
+
+    <div class="sticky">
+        I am sticky!
+        <div class="absolute">This div element has position: absolute;</div>
+    </div>
+
+    <div style="padding-bottom:2000px">
+        <p>In this example, the sticky element sticks to the top of the page (top: 0), when you reach its scroll position.</p>
+        <p>Scroll back up to remove the stickyness.</p>
+        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+    </div>
+
+    <h1 style="color: red;">Overlapping elements</h1>
+    <div class="forImage">
+        <p class="forImage">This is some text in the center.</p>
+        <img class="positioned" src="universe.jpg" />
+    </div>
+</body>
+</html>

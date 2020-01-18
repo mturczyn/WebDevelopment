@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>CSS styles</title>
+    <!--internally defined styles, internal CSS-->
+    <style>
+        
+    </style>
+    <!--reference to online CSS file-->
+    <!--External style sheets can be referenced with a full URL or with a path relative to the current web page.-->
+    <!--link rel="stylesheet" href="https://www.w3schools.com/html/styles.css"-->
+    <!--externally defined styles, external CSS-->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <!--inline-ly style, inline CSS-->
+    <h1 style="color:blue;">This is a Blue Heading, inline-ly defined style</h1>
+    <h2>This is brown <q>second</q> header, internally defined style, same as body of HTML.</h2>
+    <h3>This is darkmagenta <q>third</q> header, defined externally. Font-family is DFKai-SB.</h3>
+    <p id="myStyle">Style defined usind id attribute.</p>
+    <h1 class="error">class ATTRIBUTE</h1>
+    <p class="one">one broder</p>
+    <p class="two">one broder</p>
+    <p class="three">one broder</p>
+    <p class="separateBorder">Lorem ipsum</p>
+    <p class="four">fourfourfour</p>
+    <p class="five">fivefivefive</p>
+
+    <h2>Use of the inherit value in margin property</h2>
+    <p>Let the left margin be inherited from the parent element:</p>
+
+    <div>
+        <p class="ex1">This paragraph has an inherited left margin (from the div element).</p>
+    </div>
+
+    <div class="ex1">This div is 300px wide.</div>
+    <br>
+
+    <div class="ex2">
+        The width of this div remains at 300px, in spite of the 50px of total left and right padding, because of the box-sizing: border-box property.
+    </div>
+
+    <div class="bigWidth">
+        Huge width and scrollbar.
+    </div>
+
+    <h2>The outline-color Property</h2>
+
+    <p class="ex2">A solid red outline.</p>
+    <p class="ex3">A double green outline.</p>
+    <p class="ex4">An outset yellow outline.</p>
+
+    <p><a href="http://www.google.com/" style="text-decoration: none;">Not underlined link</a></p>
+
+    <p class="small">
+        This is a paragraph with a smaller line-height.<br>
+        This is a paragraph with a smaller line-height.<br>
+    </p>
+
+    <p class="big">
+        This is a paragraph with a bigger line-height.<br>
+        This is a paragraph with a bigger line-height.<br>
+    </p>
+
+    <p class="rtl">
+        Right to left.
+    </p>
+
+    <p class="ltr" style="text-transform: capitalize">
+        Left to right.
+    </p>
+</body>
+</html>

@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+</head>
+<style>
+    /*secure correct behavior of new HTML5 elements in older browsers*/
+    header, section, footer, aside, nav, main, article, figure {
+        display: block;
+    }
+
+    myCustomElement {
+        display: block;/*inline;*/
+        color: #ffffff;
+        background-color: #000000;
+        padding: 50px;
+        font-size: 30px;
+    }
+</style>
+<body>
+    <myCustomElement>
+        This is my custom element!
+    </myCustomElement>
+    <h1 style="color:red;">&lt;nav&gt; element in action:</h1>
+    <nav>
+        <a href="https://www.w3schools.com/html/default.asp">HTML</a> |
+        <a href="https://www.w3schools.com/css/default.asp">CSS</a> |
+        <a href="https://www.w3schools.com/js/default.asp">JavaScript</a>
+    </nav>
+    <section>
+        <header>
+            &lt;header&gt;
+        </header>
+        <h1>
+            &lt;h1&gt;
+        </h1>
+        <h3>
+            &lt;h3&gt;
+        </h3>
+        <h5>
+            &lt;h5&gt;
+        </h5>
+    </section>
+    <article>
+        <header>
+            <h1>This is header presentation</h1>
+            <p>This is paragraph in header element</p>
+        </header>
+        <p style="font-size:40px;">
+            This actual paragraph in this article.
+        </p>
+        <footer>
+            <p>This is footer presentation</p>
+            <p>
+                This is paragraph in footer element <a href="http://www.w3schools.com/" target="_blank">W3Schools</a>
+            </p>
+        </footer>
+    </article>
+</body>
+</html>

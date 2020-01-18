@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+</head>
+<body>
+    <h1 style="color:red;">HTML responsive web design</h1>
+
+    <h2 style="color:red;">Every responsive HTML page should have following included:</h2>
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+
+    <h2 style="color:red;">HTML responsive images:</h2>
+    <img src="img_girl.jpg" style="width:100%;height:auto;">
+
+    <h3 style="color:red;">This will scale up to its original size, not any more.</h3>
+    <img src="img_girl.jpg" style="max-width:100%;height:auto;">
+
+    <h3 style="color:red;">Source of below picture is dependant on size of the browser.</h3>
+    <picture>
+        <source srcset="small.jpg" media="(max-width: 600px)" />
+        <source srcset="medium.jpg" media="(max-width: 1500px)" />
+        <!-- This would be the default -->
+        <!--<source srcset="medium.jpg" />-->
+        <img src="big.jpg" alt="Flowers" />
+    </picture>
+
+    <h2 style="color:red;font-size:9vw">This is responsive text!!</h2>
+</body>
+</html>

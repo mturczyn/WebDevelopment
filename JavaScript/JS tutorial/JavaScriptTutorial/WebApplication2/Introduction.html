@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="Introduction.js"></script>
+    <!--Atrybut type oraz language są starociami i są pomijalne-->
+    <!--<script type="text/javascript" src="JavaScript.js"></script>-->
+    <script>
+        // run this function when the document is loaded
+        window.onload = function () {
+
+            // create a couple of elements in an otherwise empty HTML page
+            var heading = document.createElement("h1");
+            var heading_text = document.createTextNode("Big Head!");
+            heading.appendChild(heading_text);
+            document.body.appendChild(heading);
+        }
+        // Ta dyrektywa pozwala na używanie najnowszych zmian w JS,
+        // tzn. ECMA5 usprawniło pewne stare funkcje, niekiedy zmieniając
+        // ich działanie, dlatego domyslnie używane są stare wersje JS.
+        // Jednak poniższa dyrektywa pozwala na używanie najnowszej wersji.
+        // Może być używana dla samej funkcji jak i dla całego skryptu,
+        // zależy jak jest umieszczona.
+        "use strict"
+        function square(a) {
+            // "use strict" - aktywuje najnowsze zmiany tylko w zakesie funkcji
+            return Math.pow(a, 2);
+        }
+    </script>
+</head>
+<body>
+    <!--Tutaj testujemy wszystko!!-->
+        <script type="text/javascript">
+            conditionalAlert(true);
+            // breakpointFunction();
+            //callFunctionDefinedInVariable("Michal");
+            //globalVariables();
+            //escCancellingPrompt();
+            //logicalOperatorsDontReturnBoolean();
+            //officialJsName();
+            //ternaryOperatoryQuestionMark();
+            //conditional();
+            //promptDemo();
+            //stringComparison();
+            //bitwiseInPlace();
+            //variablesTypes();
+            //declaringVariables();
+            //[1, 2, 3].forEach(i => alert(square(i)));
+            //alert("a + b = " + add(50, 100));
+            //alert(lineBreakTest());
+            //alert(anotherLineBreakTest());
+            //alert(errorFunc());
+        </script>
+    </body>
+</html>

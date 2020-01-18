@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="TestStyles.css" />
+</head>
+<body style="background-color:bisque">
+    <table style="width:100%">
+        <caption>Monthly savings</caption>
+        <tr>
+            <th>Month</th>
+            <th>Savings</th>
+        </tr>
+        <tr>
+            <td>January</td>
+            <td>$100</td>
+        </tr>
+        <tr>
+            <td>February</td>
+            <td>$50</td>
+        </tr>
+    </table>
+    <table id="t01">
+        <caption>Table with defined style</caption>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Age</th>
+        </tr>
+        <tr>
+            <td>Eve</td>
+            <td>Jackson</td>
+            <td>94</td>
+        </tr>
+        <tr>
+            <td>Eve</td>
+            <td>Jackson</td>
+            <td>94</td>
+        </tr>
+        <tr>
+            <td>Eve</td>
+            <td>Jackson</td>
+            <td>94</td>
+        </tr>
+    </table>
+    <p id="p01">This is blue paragraph.</p>
+    <p id="p02">This is red paragraph.</p>
+    <h1 id="p01">This shouldn't be blue header, as id used for style was defined only for &lt;p&gt; element.</h1>
+    <h1 id="p02">This should be red header.</h1>
+
+    <table>
+        <tfoot>
+            <tr>
+                <th>footer</th>
+                <th>footerrr</th>
+            </tr>
+            <tr>
+                <td>footer</td>
+                <td>footer</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <th>body</th>
+                <th>body</th>
+            </tr>
+            <tr>
+                <td>body</td>
+                <td>body</td>
+            </tr>
+        </tbody>
+        <thead>
+            <tr>
+                <th>header</th>
+                <th>header</th>
+            </tr>
+            <tr>
+                <td>header</td>
+                <td>header</td>
+            </tr>
+        </thead>
+    </table>
+    <h1>Lists</h1>
+    <h2>Unordered list</h2>
+    <ul style="list-style-type:circle;">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ul>
+    <h2>Ordered list</h2>
+    <ol type="i" start="256">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ol>
+    <h2>Descriptive list</h2>
+    <dl>
+        <dt>Coffee</dt>
+        <dd>- black hot drink</dd>
+        <dt>Milk</dt>
+        <dd>- white cold drink</dd>
+    </dl>
+    <h2>Horizontal list</h2>
+    <ul>
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ul>
+    <h1>&lt;div&gt; element</h1>
+    <div style="background-color:black;color:white;padding:20px;">
+        <h2>This &lt;div&gt; element presentation</h2>
+        <p>Text color and backgroud color are defined in &lt;div&gt; element</p>
+    </div>
+    <h1>My <span style="color:red">Important</span> Heading using &lt;span&gt;</h1>
+
+    <h2 class="city">This heading is about some city with styles defined via class attribute.</h2>
+    <p class="myClass1 myClass2">Classes test</p>
+
+    <iframe src="http://www.acmilan.com.pl/" name="common_iframe"></iframe>
+    <a href="https://www.meczyki.pl/" target="common_iframe" s>Meczyki</a>
+    <a href="http://www.acmilan.com.pl/" target="common_iframe">AC Milan</a>
+
+    <h1 style="color:red">HTML code formatting</h1>
+    <h2>Computer Code</h2>
+    <code>
+        x = 5;<br />
+        y = 6;<br />
+        z = x + y;
+    </code>
+    <h2>Keyboard shortcut/input</h2>
+    <p>Save the document by pressing <kbd>Ctrl + S</kbd></p>
+    <h2>Program output</h2>
+    <p>If you input wrong value, the program will return <samp>Error!</samp> &lArr;&lt;samp&gt;!!</p>
+    <h2>Variables with &lt;var&gt; element</h2>
+    Einstein wrote: <var>E = mc</var><sup>2</sup>.
+</body>
+</html>

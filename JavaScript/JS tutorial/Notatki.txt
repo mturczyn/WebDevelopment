@@ -1,0 +1,94 @@
+ESTYMACJA: 40 H
+
+Przydatne strony:
+https://tc39.es/ecma262/
+
+Coding style guides:
+Google JavaScript Style Guide
+Airbnb JavaScript Style Guide
+Idiomatic.JS
+StandardJS https://standardjs.com
+
+developer.mozilla.org - m.in. informacje o DOMie
+
+
+Engines are complicated. But the basics are easy.
+
+The engine (embedded if it’s a browser) reads (“parses”) the script.
+Then it converts (“compiles”) the script to the machine language.
+And then the machine code runs, pretty fast.
+
+The engine applies optimizations at each step of the process. It even watches the compiled script as it runs,
+analyzes the data that flows through it, and applies optimizations to the machine code based on that knowledge. When it’s done, scripts run quite fast.
+
+SPECIFICATION
+The latest draft is at https://tc39.es/ecma262/.
+
+To read about new bleeding-edge features, including those that are “almost standard” (so-called “stage 3”), see proposals at https://github.com/tc39/proposals.
+
+USE STRICT MODE
+The "use strict" directive switches the engine to the “modern” mode, changing the behavior of some built-in features. We’ll see the details later in the tutorial.
+Strict mode is enabled by placing "use strict" at the top of a script or function. Several language features, like “classes” and “modules”, enable strict mode automatically.
+Strict mode is supported by all modern browsers.
+We recommended always starting scripts with "use strict". All examples in this tutorial assume strict mode unless (very rarely) specified otherwise.	
+
+FUNCTIONS
+Funckje z pustymi returnami albo funkcje bez returnów jako wartość zwracaną przyjmją undefined.
+
+TESTS
+Here in the tutorial we’ll be using the following JavaScript libraries for tests:
+
+Mocha – the core framework: it provides common testing functions including describe and it and the main function that runs tests.
+Chai – the library with many assertions. It allows to use a lot of different assertions, for now we need only assert.equal.
+Sinon – a library to spy over functions, emulate built-in functions and more, we’ll need it much later.
+
+REMARKS
+- !!! Plik JavaScript można pisać jako zwykły skrypt uruchamiający po kolei instrukcje.
+
+- Symbole pozwalają na unikatowe odwołania do właściwości obiektów, ponieważ
+tworzone w prosty sposób, poprzez proste podanie nazwy, taka właściwość w łatwy
+sposób może wpłyynąć na działanie innych bibliotek, gdy one będą próbowały dodać
+właściwość o tej samej nazwie. Symbole są rozróżnialne i stanowią bezpieczną alternatywę
+dla stringów, jako nazw właściwości. Można o nich myśleć jako o unikatowych identyfikatorach
+właściowści.
+I vice versa: jakiś zewnetrzny kod również nam nie zmodyfikuje takiej właściwości.
+Symboliczne właściwości nie są dostępne poprzez loopowanie po właściwościach obiektu.
+Jednak zostają przekopiowana gdy korzysta się z Object.assign
+
+- Tablice: metody push i pop są szybkie, podczas gdy shift i unshift sa bardzo wolne.
+
+- Iterables: pętla for(... of ...) wymaga zaimplementowanego symbolu Symbol.iterator.
+
+- Zbiory WeakMap oraz WeakSet służą do przechowywania obiektów (odpowiednio jako klucze i kako elemrnty), jednak jak są jedyną referncją do nich,
+zezwalają na ich pozbieranie (garbage collected).
+
+- Dekonstrukcja może być uzyta z dowolnym obiektem iterable, np. let [a,b,c] = "abc";
+
+- Konwerjsa do JSONa za pomocą JSON.stringify używa metody toJSON, którą możemy sami sobie zdefiniować
+i przeciążyć tym samym generowanego JSONa.
+
+- ... sa podobne do params w C#.
+
+- A closure is a function that remembers its outer variables and can access them.
+
+- OLD VAR: People also call such behavior “hoisting” (raising), because all var are “hoisted” (raised) to the top of the function.
+  Tzn. że deklaracje przy użyciu var są od razu wykonywane przez silnik, jednak przypisania wartości pozostają na swoim miejscu, więc
+  var someVar = "hello"; zostanie rozbity: zmienn będzie zadeklarowana już na początku, jednak nie będzie posiadać wartości do momentu
+  dojścia do tej linii.
+  
+- The browser limits the minimal delay for five or more nested call of setTimeout or for setInterval (after 5th call) to 4ms. That’s for historical reasons.
+
+- funckje można wywołać również za pomocą metod obiektu funkcji takich jak call oraz apply, gdzie call akceptuje jeden argument i ewentualnie ... (rest operator),
+  podczas gdy apply akceptuje tablicę. Obie metody akcptują przekazywanie obiektu jako kontekst dla funkcji.
+
+- obiekt nie może dziedziczyć po więcej niz jednej klasie (właściwość ___proto___)
+
+- So, async ensures that the function returns a promise, and wraps non-promises in it. Simple enough, right? But not only that. There’s another keyword, await, that works only inside async functions, and it’s pretty cool.
+
+NUMBERS AND CALLING METHODS ON THEM
+Please note that two dots in 123456..toString(36) is not a typo. If we want to call a method directly
+on a number, like toString in the example above, then we need to place two dots .. after it.
+If we placed a single dot: 123456.toString(36), then there would be an error, because JavaScript
+syntax implies the decimal part after the first dot. And if we place one more dot, then JavaScript
+knows that the decimal part is empty and now goes the method.
+Also could write (123456).toString(36).

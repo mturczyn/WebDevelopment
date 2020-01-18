@@ -1,0 +1,15 @@
+﻿table, td{
+    border:1px solid black;
+    border-collapse:collapse;
+}
+/* it doesn't require border-collapse:collapse, it's enough that adjacent cell will have that propertty set */
+th {
+    border: 1px solid black;
+}
+th, td{
+    padding:5px;
+    text-align:right;
+}
+/*table{
+    border-spacing:20px;
+}*/

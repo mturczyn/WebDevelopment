@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Styles continuation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--bootstrap-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!--google-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesPresentation.css" />
+</head>
+<body>
+
+    <h1 style="color: red;">Responsive and non-responsive block elements with max-width attribue</h1>
+    <div class="ex1">This div element has width: 500px;</div>
+    <br>
+
+    <div class="ex2">This div element has max-width: 500px;</div>
+
+    <p>
+        <strong>Tip:</strong> Drag the browser window to smaller than 500px wide, to see the difference between
+        the two divs!
+    </p>
+
+    <h1 style="color: red;">Positioning elements</h1>
+
+    <div class="static">
+        This div element has position: static;
+    </div>
+
+    <div class="relative">
+        This div element has position: relative;
+    </div>
+
+    <div class="fixed">
+        This div element has position: fixed;
+    </div>
+
+    <h2>position: absolute;</h2>
+
+    <p>An element with position: absolute; is positioned relative to the nearest positioned ancestor (instead of positioned relative to the viewport, like fixed):</p>
+
+    <div class="relative">
+        This div element has position: relative;
+    </div>
+
+    <p>Try to <b>scroll</b> inside this frame to understand how sticky positioning works.</p>
+    <p>Note: IE/Edge 15 and earlier versions do not support sticky position.</p>
+
+    <div class="sticky">
+        I am sticky!
+        <div class="absolute">This div element has position: absolute;</div>
+    </div>
+
+    <div style="padding-bottom:2000px">
+        <p>In this example, the sticky element sticks to the top of the page (top: 0), when you reach its scroll position.</p>
+        <p>Scroll back up to remove the stickyness.</p>
+        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+    </div>
+
+    <h1 style="color: red;">Overlapping elements</h1>
+    <div class="forImage">
+        <p class="forImage">This is some text in the center.</p>
+        <img class="positioned" src="universe.jpg" />
+    </div>
+
+    <h1 style="color: red;">CSS Overflow</h1>
+    <h2>visible</h2>
+    <div class="overflowVisible">You can use the overflow property when you want to have better control of the layout. The overflow property specifies what happens if content overflows an element's box.</div>
+
+    <h2>hidden</h2>
+    <div class="overflowHidden">You can use the overflow property when you want to have better control of the layout. The overflow property specifies what happens if content overflows an element's box.</div>
+
+    <h2>scroll</h2>
+    <div class="overflowScroll">You can use the overflow property when you want to have better control of the layout. The overflow property specifies what happens if content overflows an element's box.</div>
+
+    <h2>auto</h2>
+    <div class="overflowAuto">You can use the overflow property when you want to have better control of the layout. The overflow property specifies what happens if content overflows an element's box.</div>
+
+    <h2>overflow-x and overflow-y</h2>
+    <div class="overflowXY">You can use the overflow property when you want to have better control of the layout. The overflow property specifies what happens if content overflows an element's box.</div>
+
+    <h1 style="color: red;">CSS float and clear</h1>
+    <h2>Image floats on the right side</h2>
+    <p>
+        <img src="universe.jpg" alt="Universe" style="width: 170px; height :170px ;margin-left: 15px; float: left;">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.
+    </p>
+
+    <h1 style="clear: left;">float and clear (this heading uses clear: left;, otherwise, it'd appear next to the picture)</h1>
+    <h2>With clear</h2>
+    <div class="floatAndClear">Some text</div>
+    <div class="floatAndClear2">Some text</div>
+    <h2>Without clear</h2>
+    <div class="floatAndClear">Some text</div>
+    <div class="floatAndClear3">Some text</div>
+
+    <h2>Clearfix hack</h2>
+    <div style="border: 5px solid red;">NO CLEARFIX, but image isn't floating<img src="universe.jpg" /></div>
+    <div style="border: 5px solid red;">NO CLEARFIX and image is floating<img src="universe.jpg" style="float: left;" /></div>
+    <div class="clearfix">WITH CLEARFIX<img src="universe.jpg" style="float: left;" /></div>
+    <div class="newClearfix">WITH NEW CLEARFIX<img src="universe.jpg" style="float: left;" /></div>
+
+    <h2>Images Side by Side</h2>
+    <p>With the CSS float property, it is easy to float images side by side:</p>
+
+    <div class="newClearfix">
+        <div class="img-container">
+            <img src="universe.jpg" alt="Fjords" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="universe.jpg" alt="Forest" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="universe.jpg" alt="Mountains" style="width:100%">
+        </div>
+    </div>
+</body>
+</html>

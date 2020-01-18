@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C7239794-FC1A-4E92-8500-B530176F0DAC}"
+	ProjectSection(SolutionItems) = preProject
+		GameEngine.js = GameEngine.js
+		index.html = index.html
+		MathCalculations.js = MathCalculations.js
+		UserEventHandlers.js = UserEventHandlers.js
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0C0777A5-CC5E-4E00-B42A-5953441FF910}
+	EndGlobalSection
+EndGlobal

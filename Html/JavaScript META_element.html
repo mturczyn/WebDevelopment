@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="This is my test page." />
+    <meta name="author" content="Michał Turczyn" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TestPage</title>
+
+    <script src="Script1.js">
+        function myOwnJsFunction() {
+            var element = document.getElementById('p2');
+            var color = element.style.color;
+            if (color == "red") {
+                color = "green";
+            } else {
+                color = "red";
+            }
+            element.innerHTML = "My first JS method! Color is " + color + ".";
+            element.style.color = color;
+        }
+    </script>
+    <noscript>Sorry, your browser does not support JavaScript!</noscript>
+    
+</head>
+<body>
+    <h1 style="color:red;font-size:30px">HTML JavaScript</h1>
+
+    <button type="button" onclick="document.getElementById('p1').innerHTML = Date()">
+        Click me to display Date and Time.
+    </button>
+    <button type="button" onclick="myOwnJsFunction();">My own JS script</button>
+    <p id="p1"></p>
+    <p id="p2" style="color:blue">Before click...</p>
+</body>
+</html>

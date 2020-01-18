@@ -1,0 +1,3 @@
+Przesyłanie danych z HTMLa do backendu:
+- musimy mieć element z atrybutem name, wówczas wartość tego atrybutu zostanie zmapowana na parametr akcji (metody kontrolera) o tej samej nazwie.
+- atrybut Bind pozwala na zmapowanie wartości z name na pola klasy, jeśli mamy parametr tej klasy.

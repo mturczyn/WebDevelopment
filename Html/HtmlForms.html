@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+
+    <title></title>
+
+    <script>
+        function greeting() {
+            var a = document.getElementsByName('firstname').item(0).value;
+            var b = document.getElementsByName('lastname').item(0).value;
+            alert('Hello ' + a + ' ' + b +'!');
+        }
+
+        function displayCars() {
+            var cars = document.getElementById("cars");
+            var message = "";
+            for (var i = 0; i < cars.length; i++) {
+                if (cars[i].selected) {
+                    message += cars[i].text + ", ";
+                }
+            }
+            alert("Selected cars: " + message);
+        }
+
+        function calculate() {
+            document.getElementById("x").value = (parseInt(document.getElementById("a").value) * parseInt(document.getElementById("b").value))/100;
+        }
+    </script>
+    <style>
+        h1{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <!--action="/action_page.php"-->
+        First name:<br>
+        <input type="text" name="firstname" value="Mickey"><br>
+        Last name:<br>
+        <input type="text" name="lastname" value="Mouse"><br><br>
+        <input type="submit" value="Submit" onclick="greeting();">
+    </form>
+
+    <form>
+        <fieldset>
+            <legend>Personal information:</legend>
+            First name:<br>
+            <input type="text" name="firstname" value="Mickey"><br>
+            Last name:<br>
+            <input type="text" name="lastname" value="Mouse"><br><br>
+            <input type="submit" value="Submit">
+        </fieldset>
+    </form>
+
+    <form>
+        <select id="cars" size="3" multiple>
+            <option value="0">Opel</option>
+            <option value="1">Volvo</option>
+            <option value="2">Mercedes</option>
+            <option value="3" selected>BMW</option>
+        </select>
+        <input type="button" onclick="displayCars();" value="Display selected cars" /><br />
+        <textarea name="message" rows="5" style="width:300px;">Pole do wprowadzenie dużej wiadomości</textarea><br />
+        <input list="browsers">
+        <datalist id="browsers">
+            <option value="Internet Explorer">
+            <option value="Firefox">
+            <option value="Chrome">
+            <option value="Opera">
+            <option value="Safari">
+        </datalist>
+    </form>
+    <!--<form oninput="x.value = parseInt(a.value) + parseInt(b.value);">-->
+    <form oninput="calculate();">
+        0%
+        <input type="range" id="a" value="50" step="5">100%
+        *<input type="number" id="b" value="50">
+        =<output id="x" for="a b"></output>
+        <!--<input type="submit"/>-->
+    </form>
+
+    <h1>HTML input types</h1>
+    <from>
+        <h2>text</h2>
+        <input type="text" value="text input" />
+
+        <h2>password</h2>
+        <p>Password: <input type="password" /></p>
+
+        <h2>reset</h2>
+
+        First name:<br>
+        <input type="text" name="firstname" value="Mickey"><br>
+        Last name:<br>
+        <input type="text" name="lastname" value="Mouse"><br><br>
+        <input type="submit" value="Submit">
+        <input type="reset">
+
+        <h2>radio</h2>
+        <input type="radio" name="gender" value="male" checked> Male<br>
+        <input type="radio" name="gender" value="female"> Female<br>
+        <input type="radio" name="gender" value="other"> Other
+
+        <h2>checkbox</h2>
+        <input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+        <input type="checkbox" name="vehicle2" value="Car"> I have a car
+
+        <h2>color</h2>
+        Select your favorite color:
+        <input type="color" name="favcolor">
+
+        <h2>date</h2>
+        Birthday:
+        <input type="date" name="bday">
+        Enter a date before 1980-01-01:
+        <input type="date" name="bday" max="1979-12-31"><br>
+        Enter a date after 2000-01-01:
+        <input type="date" name="bday" min="2000-01-02"><br>
+
+        <h2>datetima-local</h2>
+        Birthday (date and time):
+        <input type="datetime-local" name="bdaytime">
+
+        <h2>email</h2>
+        E-mail:
+        <input type="email" name="email">
+
+        <h2>month</h2>
+        Birthday (month and year):
+        <input type="month" name="bdaymonth">
+
+        <h2>number</h2>
+        Quantity (between 1 and 5):
+        <input type="number" name="quantity" min="1" max="5" />
+        Pick any number:
+        <input type="number" name="anyNumber" />
+
+        <h2>input restrictions</h2>
+        <p>
+            This input has max length equal 10 and is required
+            <input type="text" maxlength="10" required />
+        </p>
+        <p>
+            This input accepts only string consisting of small letters or digits, length between 4 and 8.
+            <input type="text" pattern="[a-z0-9]{4,8}" />
+        </p>
+        <p>
+            This input is readonly and its size is 7
+            <input type="text" readonly="readonly" value="readonly input" size="7" />
+        </p>
+        <p>
+            Enable submit button:
+            <input type="checkbox" onchange="document.getElementById('submitButton').disabled = !document.getElementById('submitButton').disabled;" />
+        </p>
+        <p>
+            This button is disabled. Click above button to enable it.
+            <input type="submit" id="submitButton" disabled="disabled" />
+        </p>
+
+        <h2>search</h2>
+        Search Google:
+        <input type="search" name="googlesearch">
+
+        <h2>time</h2>
+        Select a time:
+        <input type="time" name="usr_time">
+
+        <h2>url</h2>
+        Add your homepage:
+        <input type="url" name="homepage">
+
+        <h2>week</h2>
+        Select a week:
+        <input type="week" name="week_year">
+    </from>
+
+    <h1>HTML input attributes</h1>
+    <h2>value</h2>
+    <form action="">
+        First name:<br>
+        <input type="text" name="firstname" value="John">
+    </form>
+    <h2>readonly</h2>
+    <form action="">
+        First name:<br>
+        <input type="text" name="firstname" value="John" readonly>
+    </form>
+    <h2>disabled</h2>
+    <form action="">
+        First name:<br>
+        <input type="text" name="firstname" value="John" disabled>
+    </form>
+    <h2>size</h2>
+    <form action="">
+        First name:<br>
+        <input type="text" name="firstname" value="John" size="40">
+    </form>
+    <h2>maxlength</h2>
+    <form action="">
+        First name:<br>
+        <input type="text" name="firstname" maxlength="10">
+    </form>
+    <h2>autocomplete</h2>
+    <form autocomplete="on">
+        First name:<input type="text" name="fname"><br>
+        Last name: <input type="text" name="lname"><br>
+        E-mail: <input type="email" name="email" autocomplete="off"><br>
+        <input type="submit">
+    </form>
+    <h2>novalidate</h2>
+    <form novalidate>
+        E-mail: <input type="email" name="user_email">
+        <input type="submit">
+    </form>
+    <h2>autofocus</h2>
+    First name:<input type="text" name="fname" autofocus>
+
+    <h2>form</h2>
+    <form action="/action_page.php" id="form1">
+        First name: <input type="text" name="fname"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    Last name: <input type="text" name="lname" form="form1">
+
+    <h2>formaction</h2>
+    <p>
+        The formaction attribute specifies the URL of a file that will process the input control when the form is submitted.
+
+        The formaction attribute overrides the action attribute of the &lt;form&gt;
+        element.
+
+        The formaction attribute is used with type="submit" and type="image".
+    </p>
+    <p>The code for this is commented, because there's no action file (example file used in code).</p>
+    <code>
+        &lt;form action="/action_page.php"&gt;
+            First name: &lt;input type="text" name="fname"&gt;<br />
+            Last name: &lt;input type="text" name="lname"&gt;<br />
+            &lt;input type="submit" value="Submit"&gt;<br />
+            &lt;input type="submit" formaction="/action_page2.php"
+                   value="Submit as admin"&gt;
+        </form>
+    </code>
+    <h2>formenctype</h2>
+    <p>
+        The formenctype attribute specifies how the form data should be encoded when submitted (only for forms with method="post").
+
+        The formenctype attribute overrides the enctype attribute of the &lt;form&gt;
+            element.
+
+            The formenctype attribute is used with type="submit" and type="image".
+    </p>
+    <p>The code for this is commented, because there's no action file (example file used in code).</p>
+    <code>
+        &lt;form action="/action_page_binary.asp" method="post"&gt;
+        First name: &lt;input type="text" name="fname"&gt;<br />
+        &lt;input type="submit" value="Submit"&gt;
+        &lt;input type="submit" formenctype="multipart/form-data"
+        value="Submit as Multipart/form-data"&gt;
+        &lt;/form&gt;
+    </code>
+
+    <p>
+        The formmethod attribute defines the HTTP method for sending form-data to the action URL.
+
+        The formmethod attribute overrides the method attribute of the &lt;form&gt;
+            element.
+
+            The formmethod attribute can be used with type="submit" and type="image".
+    </p>
+    <h2 style="color:red;"><a href="https://www.w3schools.com/html/html_form_attributes.asp">Rest of attributes.</a></h2>
+    <iframe src="https://www.w3schools.com/html/html_form_attributes.asp"></iframe>
+</body>
+</html>

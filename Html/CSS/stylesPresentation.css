@@ -1,0 +1,140 @@
+﻿div.ex1 {
+    width: 1000px;
+    margin: auto;
+    border: 3px solid #73AD21;
+}
+
+div.ex2 {
+    max-width: 1000px;
+    margin: auto;
+    border: 3px solid #73AD21;
+}
+
+div.static {
+    position: static;
+    left: 30px;/*no effect due to position: static;*/
+    border: 3px solid #73AD21;
+}
+
+div.relative {
+    position: relative;
+    left: 30px;
+    border: 3px solid #73AD21;
+}
+
+div.fixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    border: 3px solid #73AD21;
+}
+
+div.absolute {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: 200px;
+    height: 100px;
+    border: 3px solid #73AD21;
+}
+
+div.sticky {
+    /*position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 30px;
+    background-color: green;
+    border: 2px solid #4CAF50;
+}
+
+img.positioned{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+div.forImage {
+    position: relative;
+    height: 200px;
+}
+
+p.forImage{
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+    position: relative;
+    top: 50%;
+    text-align: center;
+}
+
+div.overflowVisible {
+    width: 200px;
+    height: 50px;
+    background-color: #eee;
+    overflow: visible;
+}
+
+div.overflowHidden {
+    width: 200px;
+    height: 50px;
+    background-color: #eee;
+    overflow: hidden;
+}
+
+div.overflowScroll {
+    width: 200px;
+    height: 50px;
+    background-color: #eee;
+    overflow: scroll;
+}
+
+div.overflowAuto {
+    width: 200px;
+    height: 50px;
+    background-color: #eee;
+    overflow: auto;
+}
+
+div.overflowXY {
+    width: 200px;
+    height: 50px;
+    background-color: #eee;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+div.floatAndClear{
+    float: left;
+    border: solid 1px red;
+}
+
+div.floatAndClear2 {
+    clear: left;
+    border: solid 1px red;
+}
+
+div.floatAndClear3 {
+    border: solid 1px red;
+}
+
+div.clearfix {
+    border: 5px solid green;
+    overflow: auto;
+}
+
+div.newClearfix {
+    border: 5px solid green;
+    content: "";
+    clear: both;
+    display: table;
+}
+
+div.img-container {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+}
+

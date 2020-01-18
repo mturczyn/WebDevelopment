@@ -1,0 +1,11 @@
+﻿@page
+@model MvcMovie.Views.HelloWorld.WelcomeModel
+@{
+}
+<h1>@ViewBag.Message</h1>
+<ol>
+    @for (int i = 0; i < (int)ViewBag.Count; i++)
+    {
+        <p>@ViewBag.Message</p>
+    }
+</ol>

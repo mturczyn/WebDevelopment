@@ -1,0 +1,28 @@
+C:\Users\Mi\Desktop\CSharp\ASP.NET\JavaScriptTutorial\WebApplication2\bin\Debug\netcoreapp2.1\JavaScriptTutorial.deps.json
+C:\Users\Mi\Desktop\CSharp\ASP.NET\JavaScriptTutorial\WebApplication2\bin\Debug\netcoreapp2.1\JavaScriptTutorial.runtimeconfig.json
+C:\Users\Mi\Desktop\CSharp\ASP.NET\JavaScriptTutorial\WebApplication2\bin\Debug\netcoreapp2.1\JavaScriptTutorial.runtimeconfig.dev.json
+C:\Users\Mi\Desktop\CSharp\ASP.NET\JavaScriptTutorial\WebApplication2\bin\Debug\netcoreapp2.1\JavaScriptTutorial.dll
+C:\Users\Mi\Desktop\CSharp\ASP.NET\JavaScriptTutorial\WebApplication2\bin\Debug\netcoreapp2.1\JavaScriptTutorial.pdb
+C:\Users\Mi\Desktop\CSharp\ASP.NET\JavaScriptTutorial\WebApplication2\obj\Debug\netcoreapp2.1\JavaScriptTutorial.csprojAssemblyReference.cache
+C:\Users\Mi\Desktop\CSharp\ASP.NET\JavaScriptTutorial\WebApplication2\obj\Debug\netcoreapp2.1\JavaScriptTutorial.csproj.CoreCompileInputs.cache
+C:\Users\Mi\Desktop\CSharp\ASP.NET\JavaScriptTutorial\WebApplication2\obj\Debug\netcoreapp2.1\JavaScriptTutorial.RazorAssemblyInfo.cache
+C:\Users\Mi\Desktop\CSharp\ASP.NET\JavaScriptTutorial\WebApplication2\obj\Debug\netcoreapp2.1\JavaScriptTutorial.RazorAssemblyInfo.cs
+C:\Users\Mi\Desktop\CSharp\ASP.NET\JavaScriptTutorial\WebApplication2\obj\Debug\netcoreapp2.1\JavaScriptTutorial.AssemblyInfoInputs.cache
+C:\Users\Mi\Desktop\CSharp\ASP.NET\JavaScriptTutorial\WebApplication2\obj\Debug\netcoreapp2.1\JavaScriptTutorial.AssemblyInfo.cs
+C:\Users\Mi\Desktop\CSharp\ASP.NET\JavaScriptTutorial\WebApplication2\obj\Debug\netcoreapp2.1\JavaScriptTutorial.RazorTargetAssemblyInfo.cache
+C:\Users\Mi\Desktop\CSharp\ASP.NET\JavaScriptTutorial\WebApplication2\obj\Debug\netcoreapp2.1\JavaScriptTutorial.dll
+C:\Users\Mi\Desktop\CSharp\ASP.NET\JavaScriptTutorial\WebApplication2\obj\Debug\netcoreapp2.1\JavaScriptTutorial.pdb
+C:\Users\Mi\Desktop\JavaScript\JS tutorial\JavaScriptTutorial\WebApplication2\bin\Debug\netcoreapp2.1\JavaScriptTutorial.deps.json
+C:\Users\Mi\Desktop\JavaScript\JS tutorial\JavaScriptTutorial\WebApplication2\bin\Debug\netcoreapp2.1\JavaScriptTutorial.runtimeconfig.json
+C:\Users\Mi\Desktop\JavaScript\JS tutorial\JavaScriptTutorial\WebApplication2\bin\Debug\netcoreapp2.1\JavaScriptTutorial.runtimeconfig.dev.json
+C:\Users\Mi\Desktop\JavaScript\JS tutorial\JavaScriptTutorial\WebApplication2\bin\Debug\netcoreapp2.1\JavaScriptTutorial.dll
+C:\Users\Mi\Desktop\JavaScript\JS tutorial\JavaScriptTutorial\WebApplication2\bin\Debug\netcoreapp2.1\JavaScriptTutorial.pdb
+C:\Users\Mi\Desktop\JavaScript\JS tutorial\JavaScriptTutorial\WebApplication2\obj\Debug\netcoreapp2.1\JavaScriptTutorial.csprojAssemblyReference.cache
+C:\Users\Mi\Desktop\JavaScript\JS tutorial\JavaScriptTutorial\WebApplication2\obj\Debug\netcoreapp2.1\JavaScriptTutorial.csproj.CoreCompileInputs.cache
+C:\Users\Mi\Desktop\JavaScript\JS tutorial\JavaScriptTutorial\WebApplication2\obj\Debug\netcoreapp2.1\JavaScriptTutorial.RazorAssemblyInfo.cache
+C:\Users\Mi\Desktop\JavaScript\JS tutorial\JavaScriptTutorial\WebApplication2\obj\Debug\netcoreapp2.1\JavaScriptTutorial.RazorAssemblyInfo.cs
+C:\Users\Mi\Desktop\JavaScript\JS tutorial\JavaScriptTutorial\WebApplication2\obj\Debug\netcoreapp2.1\JavaScriptTutorial.AssemblyInfoInputs.cache
+C:\Users\Mi\Desktop\JavaScript\JS tutorial\JavaScriptTutorial\WebApplication2\obj\Debug\netcoreapp2.1\JavaScriptTutorial.AssemblyInfo.cs
+C:\Users\Mi\Desktop\JavaScript\JS tutorial\JavaScriptTutorial\WebApplication2\obj\Debug\netcoreapp2.1\JavaScriptTutorial.RazorTargetAssemblyInfo.cache
+C:\Users\Mi\Desktop\JavaScript\JS tutorial\JavaScriptTutorial\WebApplication2\obj\Debug\netcoreapp2.1\JavaScriptTutorial.dll
+C:\Users\Mi\Desktop\JavaScript\JS tutorial\JavaScriptTutorial\WebApplication2\obj\Debug\netcoreapp2.1\JavaScriptTutorial.pdb

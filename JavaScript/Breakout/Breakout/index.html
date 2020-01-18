@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<!--
+    Gra Breakout, źródło:
+    https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript
+-->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Gamedev Canvas Workshop</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        canvas {
+            background: #eee;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+    <!-- Po załadowaniu dokumentów w jednym HTMLu, zmienne jednego skryptu
+    powinny byc widoczne w drugim. -->
+    <script src="GameEngine.js"></script>
+    <script src="UserEventHandlers.js"></script>
+    <script src="MathCalculations.js"></script>
+</head>
+<body>
+    <canvas id="myCanvas" width="480" height="320"></canvas>
+
+    <script>
+        // Pobierz element canvas do rysowania.
+        var canvas = document.getElementById("myCanvas");
+        initializaVariables(canvas);
+
+        // Dodajemy obsługę naciśnięć przycisków.
+        document.addEventListener("keydown", keyDownHandler, false);
+        document.addEventListener("keyup", keyUpHandler, false);
+        // Rozpoczynamy grę.
+        //var game = setInterval(() => draw(game), 10);
+        draw();
+    </script>
+
+</body>
+</html>

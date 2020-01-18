@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <link rel="stylesheet" href="FirstJavaScript.css" />
+    <script src="FirstJavaScript.js">
+        //function DisplayGreeting() {
+        //    var string1 = document.getElementById("firstName").value;
+        //    var string2 = document.getElementById("lastName").value;
+        //    alert("Welcome " + string1 + " " + string2);
+        //}
+    </script>
+</head>
+<body>
+    <h1>Heading</h1>
+    <script>
+        var a = 5;
+        while (a > 0) {
+            document.write(a + '<br />');
+            if (a < 3) {
+                document.write('<h2 style="color:red;"><var>a</var> is very low...</h2>');
+            }
+            a -= 1;
+        }
+    </script>
+    <form>
+        <p>Enter your first name: <input type="text" id="firstName" /></p><br />
+        <p>Enter your last name: <input type="text" id="lastName" /></p><br />
+        <button onclick="DisplayGreeting();">Display greeting</button>
+    </form>
+</body>
+</html>

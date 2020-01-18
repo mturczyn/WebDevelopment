@@ -1,0 +1,46 @@
+﻿li.hMenu {
+    background: red;
+    width: 33.33%; /*for the older browsers fallback */
+    width: calc(100% / 3);
+    height: 100%;
+    float: left;
+    vertical-align: middle;
+}
+
+li.hMenu:hover{
+    background-color: darkred;
+}
+
+li.hMenu:active{
+    position: relative;
+    left: 1px;
+    top: 1px;
+    background-color: darkred;
+}
+
+#menu {
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border: 1px solid black;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 600px) {
+    li.hMenu {
+        float: none;
+        width: 100%;
+    }
+}

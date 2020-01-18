@@ -1,0 +1,54 @@
+﻿span.RoundedCorners{
+    border-radius:15px 8px;
+    border: 2px green solid;
+    padding: 5px;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+#borderimg {
+    border: 10px solid transparent;
+    padding: 15px;
+    border-image: url(border.png) 30 round;
+}
+
+#borderimg2 {
+    border: 10px solid transparent;
+    padding: 15px;
+    border-image: url(border.png) 30 stretch;
+}
+
+#example1 {
+    /*background-image: url(img_flwr.gif), url(paper.gif);
+    background-position: right bottom, left top;
+    background-repeat: no-repeat, repeat;*/
+    background: url(img_flwr.gif) right bottom no-repeat, url(paper.gif) left top repeat fixed;
+    /*background-size: 40px 40px, auto;*/
+}
+
+#example2 {
+    border: 10px solid black;
+    padding: 35px;
+    background: url(img_flwr.gif);
+    background-repeat: no-repeat;
+}
+
+#example3 {
+    border: 10px solid black;
+    padding: 35px;
+    background: url(img_flwr.gif);
+    background-repeat: no-repeat;
+    background-origin: border-box;
+}
+
+#example4 {
+    border: 10px solid black;
+    padding: 35px;
+    background: url(img_flwr.gif);
+    background-repeat: no-repeat;
+    background-origin: content-box;
+}
+
+
+

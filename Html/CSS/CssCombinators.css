@@ -1,0 +1,96 @@
+﻿/**
+ * CONTENTS
+ *
+ * Css Combinators, pseudo-classes and pseudo-elements..........Example usage of mentioned things.
+ */
+
+/*------------------------------------*\
+  #Css Combinators, pseudo-classes and pseudo-elements
+\*------------------------------------*/
+/**
+  * This is comment to this section.
+*/
+
+body
+{
+    background-color: bisque;
+}
+
+/*------------------------------------*\
+  #Css Combinators
+\*------------------------------------*/
+
+div p.descendant{
+    background-color: green;
+}
+
+div > p.child {
+    background-color: red;
+}
+
+div + p.sibling {
+    background-color: yellow;
+}
+
+div ~ p.generalSibling {
+    background-color: cornflowerblue;
+}
+
+/*------------------------------------*\
+  #Css pseudo-classes
+\*------------------------------------*/
+
+p.pseudoClasses {
+    display: none;
+    background-color: yellow;
+    padding: 20px;
+}
+
+div:hover p.pseudoClasses {
+    display: block;
+}
+
+p.firstChild:first-child{
+    color: red;
+}
+
+p.firstChild i:first-child{
+    color: blue;
+}
+
+p.firstChild:first-child i{
+    color: darkgoldenrod;
+}
+
+q:lang(myPolskiLang) {
+    quotes: ",," '"';
+}
+
+/*------------------------------------*\
+  #Css pseudo-elements
+\*------------------------------------*/
+
+p.pseudoElements::first-line {
+    color: red;
+    font-variant: small-caps;
+}
+
+p.pseudoElements2::first-letter {
+    color: red;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+p.pseudoElements2::selection {
+        color: goldenrod;
+        background-color: white;
+        font-weight: bold;
+    }
+
+h1.pseudoElements::before {
+    content: url(smiley.gif);
+}
+
+h1.pseudoElements::after {
+    content: url(smiley.gif);
+}
