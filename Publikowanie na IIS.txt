@@ -1,0 +1,5 @@
+1. Postępować zgodnie z https://docs.microsoft.com/en-us/aspnet/core/tutorials/publish-to-iis?view=aspnetcore-3.1&tabs=visual-studio
+   Uwaga: jeśli zdecydujemy się kopiować opublikowaną aplikację z folderu do katalogu witryny, należy uważać: w opublikowanych plikach jest katalog publish - i to zawartość tego katalogu należy skopiować.
+   Uwaga: należy na folderze z opublikowaną aplikacją nadać odopwiednie uprawnienia dla IISa.
+2. Ustawienie SQL Server: jak się zmiania na serwerze opcje logowanie (możliwość z Winndows Authentication do mieszanej: Windows i SQL Server authentication) należy zrestartować usługę SQLa, aby zmiany weszły w życie.
+3. Żeby móc się połączyc z innych urządzeń, należy otworzyć odpowiedni port w firewallu.

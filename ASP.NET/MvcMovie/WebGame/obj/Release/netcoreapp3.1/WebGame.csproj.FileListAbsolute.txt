@@ -151,4 +151,4 @@ C:\Users\Mi\Desktop\Webówka\ASP.NET\MvcMovie\WebGame\obj\Release\netcoreapp3.1\
 C:\Users\Mi\Desktop\Webówka\ASP.NET\MvcMovie\WebGame\obj\Release\netcoreapp3.1\WebGame.csproj.CopyComplete
 C:\Users\Mi\Desktop\Webówka\ASP.NET\MvcMovie\WebGame\obj\Release\netcoreapp3.1\WebGame.dll
 C:\Users\Mi\Desktop\Webówka\ASP.NET\MvcMovie\WebGame\obj\Release\netcoreapp3.1\WebGame.pdb
-C:\Users\Mi\Desktop\Webówka\ASP.NET\MvcMovie\WebGame\bin\Release\netcoreapp3.1\web.config
+C:\Users\Mi\Desktop\Webówka\ASP.NET\MvcMovie\WebGame\obj\Release\netcoreapp3.1\Razor\Views\Roles\Create.cshtml.g.cs

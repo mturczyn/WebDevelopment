@@ -154,7 +154,6 @@ C:\Users\Mi\Desktop\CSharp\ASP.NET\MvcMovie\WebGame\obj\Debug\netcoreapp3.1\Razo
 C:\Users\Mi\Desktop\Webówka\ASP.NET\MvcMovie\WebGame\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Mi\Desktop\Webówka\ASP.NET\MvcMovie\WebGame\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Mi\Desktop\Webówka\ASP.NET\MvcMovie\WebGame\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
-C:\Users\Mi\Desktop\Webówka\ASP.NET\MvcMovie\WebGame\bin\Debug\netcoreapp3.1\web.config
 C:\Users\Mi\Desktop\Webówka\ASP.NET\MvcMovie\WebGame\bin\Debug\netcoreapp3.1\WebGame.exe
 C:\Users\Mi\Desktop\Webówka\ASP.NET\MvcMovie\WebGame\bin\Debug\netcoreapp3.1\WebGame.deps.json
 C:\Users\Mi\Desktop\Webówka\ASP.NET\MvcMovie\WebGame\bin\Debug\netcoreapp3.1\WebGame.runtimeconfig.json
