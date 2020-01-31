@@ -1,0 +1,29 @@
+﻿IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+
+GO
+
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20200117212934_reset', N'3.1.0');
+
+GO
+
+ALTER TABLE [User] ADD [Login] nvarchar(max) NULL;
+
+GO
+
+ALTER TABLE [User] ADD [Password] nvarchar(max) NULL;
+
+GO
+
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20200131124528_Added login and password', N'3.1.0');
+
+GO
+

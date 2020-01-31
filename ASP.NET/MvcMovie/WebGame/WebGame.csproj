@@ -5,6 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200127192541_Creating DB on new machine.cs" />
+    <Compile Remove="Migrations\20200127192541_Creating DB on new machine.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\js\AfterLoginHandler.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">

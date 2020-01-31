@@ -10,6 +10,13 @@ namespace WebGame.Controllers
 {
   public class HomeController : Controller
   {
+    private WebAppDbContext _context;
+
+    public HomeController(WebAppDbContext ctx)
+    {
+      _context = ctx;
+    }
+
     public IActionResult Index()
     {
       return View();
@@ -38,6 +45,17 @@ namespace WebGame.Controllers
     public IActionResult Error()
     {
       return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+
+    [HttpPost, ActionName("Index")]
+    public IActionResult AfterLogin(string loginName, string passwordInput)
+    {
+      var loginResult = _context.User.Where(u => u.Login == loginName && u.Password == passwordInput).Any();
+
+      if (loginResult)
+        return View("~/Users/Index.cshtml", _context.User.ToList());
+      else
+        return View();
     }
   }
 }
