@@ -1,0 +1,3 @@
+Bootstrap zawiera style dla wielu elementów HTML.
+
+Należy uważać na zagnieżdżone zpapytania HTTP, ponieważ w takiej sytuacji, po tym jak wykona się wewnętrzne zapytanie i zwróci odpowidź (i spodziewamy sie, że się wyświetli ta strona), kończy się to zewnętrzne zapytanie i wracamy znów do oryginalnej strony.

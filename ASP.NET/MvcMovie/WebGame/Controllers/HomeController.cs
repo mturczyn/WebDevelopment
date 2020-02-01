@@ -5,13 +5,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebGame.Models;
+using Newtonsoft; 
 
 namespace WebGame.Controllers
 {
   public class HomeController : Controller
   {
     private WebAppDbContext _context;
-
+    private object _portNumber;
     public HomeController(WebAppDbContext ctx)
     {
       _context = ctx;
@@ -19,6 +20,9 @@ namespace WebGame.Controllers
 
     public IActionResult Index()
     {
+      // Jest to głowna strona, także tutaj na pewno pobierzemy port, na którym obecnie pracujemy.
+      _portNumber = Request.HttpContext.Connection.LocalPort;
+      ViewData["PortNumber"] = _portNumber;
       return View();
     }
 
@@ -50,12 +54,28 @@ namespace WebGame.Controllers
     [HttpPost, ActionName("Index")]
     public IActionResult AfterLogin(string loginName, string passwordInput)
     {
-      var loginResult = _context.User.Where(u => u.Login == loginName && u.Password == passwordInput).Any();
 
-      if (loginResult)
-        return View("~/Users/Index.cshtml", _context.User.ToList());
+      if (true)
+        return View();// View("~/Users/Index.cshtml", _context.User.ToList());
       else
         return View();
+    }
+
+
+    public IActionResult AuthenticateUser(string json)
+    {
+      dynamic deserializedJson = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
+      string login = deserializedJson.username?.ToString();
+      string password = deserializedJson.password?.ToString();
+
+      if(login == null || password == null)
+      {
+        return Json(new { status = false, message = "login or password was null" });
+      }
+
+      var loginResult = _context.User.Where(u => u.Login == login && u.Password == password).Any();
+      string redirectTo = Url.Action("Index", "Users");
+      return Json(new { status = loginResult, redirect = redirectTo });
     }
   }
 }

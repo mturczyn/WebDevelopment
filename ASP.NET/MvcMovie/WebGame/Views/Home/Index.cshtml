@@ -1,21 +1,18 @@
-﻿@model bool
+﻿<script>
+    @*Tutaj wczytujemy dane z ktnotrolera.
+        *@
+    hostUrl = '@Url.Action("AuthenticateUser","Home")';
+</script>
 
 @{
-    ViewData["Title"] = "Home Page";
+  ViewData["Title"] = "Home Page";
 }
 <p>
-Welcome to our page! Please log in in order to use capabilities of this page:
+    Welcome to our page! Please log in in order to use capabilities of this page:
 </p>
 
-<form method="post">
-    Login: 
-    <input name="loginName" type="text" /> <br/>
-    Password: 
-    <input name="passwordInput" type="password" /><br/>
-    <input type="submit" value="Log in" />
-    <script>
-        alert("hello world");
-        var model = Model;
-        handleLogin();
-    </script>
-</form>
+Login: 
+<input name="loginName" type="text" /> <br/>
+Password: 
+<input name="passwordInput" type="password" /><br/>    
+<button id="authBtn" onclick="handleLogin()" value="Get message"></button>

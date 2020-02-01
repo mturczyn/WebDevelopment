@@ -1,1 +1,0 @@
-Bootstrap zawiera style dla wielu elementów HTML.

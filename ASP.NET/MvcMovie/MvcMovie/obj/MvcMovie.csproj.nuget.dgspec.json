@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Michal\\Desktop\\Webówka\\WebDevelopment\\ASP.NET\\MvcMovie\\MvcMovie\\MvcMovie.csproj": {}
+    "C:\\Users\\Mi\\Desktop\\Webówka\\ASP.NET\\MvcMovie\\MvcMovie\\MvcMovie.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Michal\\Desktop\\Webówka\\WebDevelopment\\ASP.NET\\MvcMovie\\MvcMovie\\MvcMovie.csproj": {
+    "C:\\Users\\Mi\\Desktop\\Webówka\\ASP.NET\\MvcMovie\\MvcMovie\\MvcMovie.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Michal\\Desktop\\Webówka\\WebDevelopment\\ASP.NET\\MvcMovie\\MvcMovie\\MvcMovie.csproj",
+        "projectUniqueName": "C:\\Users\\Mi\\Desktop\\Webówka\\ASP.NET\\MvcMovie\\MvcMovie\\MvcMovie.csproj",
         "projectName": "MvcMovie",
-        "projectPath": "C:\\Users\\Michal\\Desktop\\Webówka\\WebDevelopment\\ASP.NET\\MvcMovie\\MvcMovie\\MvcMovie.csproj",
-        "packagesPath": "C:\\Users\\Michal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Michal\\Desktop\\Webówka\\WebDevelopment\\ASP.NET\\MvcMovie\\MvcMovie\\obj\\",
+        "projectPath": "C:\\Users\\Mi\\Desktop\\Webówka\\ASP.NET\\MvcMovie\\MvcMovie\\MvcMovie.csproj",
+        "packagesPath": "C:\\Users\\Mi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mi\\Desktop\\Webówka\\ASP.NET\\MvcMovie\\MvcMovie\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Michal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Mi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
