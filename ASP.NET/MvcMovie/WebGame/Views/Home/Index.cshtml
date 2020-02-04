@@ -11,8 +11,17 @@
     Welcome to our page! Please log in in order to use capabilities of this page:
 </p>
 
-Login: 
-<input name="loginName" type="text" /> <br/>
-Password: 
-<input name="passwordInput" type="password" /><br/>    
-<button id="authBtn" onclick="handleLogin()" value="Get message"></button>
+<fieldset>
+    <legend>Login</legend>
+    Login:
+    <input name="loginName" type="text" /> <br />
+    Password:
+    <input name="passwordInput" type="password" /><br />
+    <!-- WAŻNE: zawsze dajemy type dla button (jego domyślne zachowanie to submit, który przy formie ją wysyła!) -->
+    <button id="authBtn" class="btn" onclick="handleLogin()" type="button">Login</button>
+</fieldset>
+@* Tutaj mamy przykład, w którym dane z formy będa przekazane do zdef. przez nas akcji Contact w kontrolerze Home.
+<form method="post" action="@Url.Action("Contact", "Home")">
+    <input name="exampleText" value="test text" />
+    <input type="submit" />
+</form>*@

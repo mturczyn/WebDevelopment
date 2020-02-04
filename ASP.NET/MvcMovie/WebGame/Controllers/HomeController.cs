@@ -33,7 +33,7 @@ namespace WebGame.Controllers
       return View();
     }
 
-    public IActionResult Contact()
+    public IActionResult Contact(string data)
     {
       ViewData["Message"] = "Your contact page.";
 

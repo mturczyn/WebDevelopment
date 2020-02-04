@@ -459,3 +459,4 @@ C:\Users\Mi\Desktop\Webówka\ASP.NET\MvcMovie\WebGame\obj\Debug\netcoreapp3.1\We
 C:\Users\Mi\Desktop\Webówka\ASP.NET\MvcMovie\WebGame\obj\Debug\netcoreapp3.1\WebGame.dll
 C:\Users\Mi\Desktop\Webówka\ASP.NET\MvcMovie\WebGame\obj\Debug\netcoreapp3.1\WebGame.pdb
 C:\Users\Mi\Desktop\Webówka\ASP.NET\MvcMovie\WebGame\obj\Debug\netcoreapp3.1\WebGame.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Michal\Desktop\Webówka\WebDevelopment\ASP.NET\MvcMovie\WebGame\bin\Debug\netcoreapp3.1\bundleconfig.json

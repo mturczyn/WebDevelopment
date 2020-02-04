@@ -1,0 +1,4 @@
+Elementy input można parować z elementami label za pomocą atrybutu for (równe id inputa), wówczas kliknięcie na label spowoduje focus na inpucie:
+
+<label for="username">Username</label>
+<input type="text" name="username" id="username">
