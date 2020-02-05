@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mi\\Desktop\\JavaScript\\JS tutorial\\JavaScriptTutorial\\WebApplication2\\JavaScriptTutorial.csproj": {}
+    "C:\\Users\\Michal\\Desktop\\Webówka\\WebDevelopment\\JavaScript\\JS tutorial\\JavaScriptTutorial\\WebApplication2\\JavaScriptTutorial.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mi\\Desktop\\JavaScript\\JS tutorial\\JavaScriptTutorial\\WebApplication2\\JavaScriptTutorial.csproj": {
+    "C:\\Users\\Michal\\Desktop\\Webówka\\WebDevelopment\\JavaScript\\JS tutorial\\JavaScriptTutorial\\WebApplication2\\JavaScriptTutorial.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mi\\Desktop\\JavaScript\\JS tutorial\\JavaScriptTutorial\\WebApplication2\\JavaScriptTutorial.csproj",
+        "projectUniqueName": "C:\\Users\\Michal\\Desktop\\Webówka\\WebDevelopment\\JavaScript\\JS tutorial\\JavaScriptTutorial\\WebApplication2\\JavaScriptTutorial.csproj",
         "projectName": "JavaScriptTutorial",
-        "projectPath": "C:\\Users\\Mi\\Desktop\\JavaScript\\JS tutorial\\JavaScriptTutorial\\WebApplication2\\JavaScriptTutorial.csproj",
-        "packagesPath": "C:\\Users\\Mi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mi\\Desktop\\JavaScript\\JS tutorial\\JavaScriptTutorial\\WebApplication2\\obj\\",
+        "projectPath": "C:\\Users\\Michal\\Desktop\\Webówka\\WebDevelopment\\JavaScript\\JS tutorial\\JavaScriptTutorial\\WebApplication2\\JavaScriptTutorial.csproj",
+        "packagesPath": "C:\\Users\\Michal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Michal\\Desktop\\Webówka\\WebDevelopment\\JavaScript\\JS tutorial\\JavaScriptTutorial\\WebApplication2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Mi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Michal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -35,3 +35,12 @@ body {
         display: none;
     }
 }
+
+table {
+    border-collapse: separate;
+    border-spacing: 5px;
+} 
+
+input {
+    border-radius: 5px;
+}

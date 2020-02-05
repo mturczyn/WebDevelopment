@@ -51,16 +51,6 @@ namespace WebGame.Controllers
       return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
-    [HttpPost, ActionName("Index")]
-    public IActionResult AfterLogin(string loginName, string passwordInput)
-    {
-
-      if (true)
-        return View();// View("~/Users/Index.cshtml", _context.User.ToList());
-      else
-        return View();
-    }
-
 
     public IActionResult AuthenticateUser(string json)
     {

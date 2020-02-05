@@ -13,12 +13,20 @@
 
 <fieldset>
     <legend>Login</legend>
-    Login:
-    <input name="loginName" type="text" /> <br />
-    Password:
-    <input name="passwordInput" type="password" /><br />
-    <!-- WAŻNE: zawsze dajemy type dla button (jego domyślne zachowanie to submit, który przy formie ją wysyła!) -->
-    <button id="authBtn" class="btn" onclick="handleLogin()" type="button">Login</button>
+    <table>
+        <tr>
+            <td><label for="loginInput">Login:</label></td>
+            <td><input name="loginName" id="loginInput" type="text" /></td>
+        </tr>
+        <tr>
+            <td><label for="passwordInput">Password:</label></td>
+            <td><input name="passwordInput" id="passwordInput" type="password" /></td>
+            <!-- WAŻNE: zawsze dajemy type dla button (jego domyślne zachowanie to submit, który przy formie ją wysyła!) -->
+        </tr>
+        <tr>
+            <td colspan="2"><button id="authBtn" class="btn" onclick="handleLogin()" type="button">Login</button></td>
+        </tr>
+    </table>
 </fieldset>
 @* Tutaj mamy przykład, w którym dane z formy będa przekazane do zdef. przez nas akcji Contact w kontrolerze Home.
 <form method="post" action="@Url.Action("Contact", "Home")">

@@ -96,7 +96,7 @@
 				<input type="text" name="username" id="username">
 				<!-- drugi sposób parowania - checkboxy/radio - pozwala to na zaznaczenie poprzez kliknięcie opisu nawet -->
 				<label>
-				  <input type="radio" name="day" value="Friday" checked> Friday
+				  <input disabled type="radio" name="day" value="Friday" checked> Friday
 				</label>
 				<label>
 				  <input type="radio" name="day" value="Saturday"> Saturday
@@ -104,7 +104,19 @@
 				<label>
 				  <input type="radio" name="day" value="Sunday"> Sunday
 				</label>
+				<input required type="text" placeholder="i am holding place"/>
+				<input type="email" placeholder="enter e-mail address"/>
 			</form>
 		</form>
+		<table style="border-collapse: separate; border-spacing:1px; border: 2px solid #000000">
+			<tr style="border: 2px solid #000000">
+				<th style="border: 2px solid #000000">header</th>
+			</tr>			
+		</table>
+		<table style="border-collapse: collapse; border: 2px solid #000000">
+			<tr style="border: 2px solid #000000">
+				<th style="border: 2px solid #000000">header</th>
+			</tr>			
+		</table>
 	</body>
 </html>
