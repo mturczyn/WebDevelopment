@@ -15,6 +15,7 @@ function handleLogin() {
         data: { "json": JSON.stringify(json) },
         url: hostUrl,
         success: function (data) {
+            document = data;
             if (data.status) {
                 alert("Successfull login.");
                 window.location.href = data.redirect;

@@ -3,3 +3,7 @@
 W manadźerze dodać należy stronę internetową (pod witrynami - dodaj witrynę...). Jako folder należy tam wskazać folder, do którego publikujemy aplikacje.
 Od strony Visuala: należy dać publikuj... i dać do folderu, na który wskazuje nasza witryna. Należy pamiętać aby dodać web.config bo nie jest on dodawany domyślnie.
 Potem należy jeszcze pamiętać o uprawnieniach, w manadżerze IISa można wskazać pod jakim użytkownikiem będzie uzyskiwany dostęp do katalogu aplikacji i również należy temu użytkownikowi nadać odpowiednie uprawnienia.
+
+Błąd nieobsługiwanego rozszerzenia (w tym przypadku ASAX): należy wówczas włączyć w "Windows features" w "dodaj lub usuń programy" w panelu sterowania odpowiednie funkcje:
+idziemy do: Internetowe usługi informatyczne -> usługi WWW -> funkcje tworzenia aplikacji
+i tutaj zanznaczamy odpowiedni ASP.NETXXX, gdzie XXX to wersja (odpowiedni .NET Extensibility wówczas się zaznaczy), ponadto zaznaczamy "Filtry ISAPI" oraz "Rozszerzenia ISAPI"
