@@ -55,7 +55,6 @@ namespace WebGame.Controllers
     public IActionResult AuthenticateUser(string json)
     {
       dynamic deserializedJson = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
-      return View();
       string login = deserializedJson.username?.ToString();
       string password = deserializedJson.password?.ToString();
 

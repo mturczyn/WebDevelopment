@@ -1,10 +1,4 @@
-﻿<script>
-    @*Tutaj wczytujemy dane z ktnotrolera.
-        *@
-    hostUrl = '@Url.Action("AuthenticateUser","Home")';
-</script>
-
-@{
+﻿@{
   ViewData["Title"] = "Home Page";
 }
 <p>
@@ -24,7 +18,12 @@
             <!-- WAŻNE: zawsze dajemy type dla button (jego domyślne zachowanie to submit, który przy formie ją wysyła!) -->
         </tr>
         <tr>
-            <td colspan="2"><button id="authBtn" class="btn" onclick="handleLogin()" type="button">Login</button></td>
+            <td>
+                <button id="authBtn" class="btn" onclick="handleLogin()" type="button">Login</button>
+            </td><!-- Tak możemy się pozbyć niechcianych białych znaków między tagami i mieć czysty kod.
+         --><td>
+                <button id="createNewUser" class="btn" onclick="window.location.href='@Url.Action("Create", "Users")'">Create New</button>
+            </td>
         </tr>
     </table>
 </fieldset>
@@ -33,3 +32,17 @@
     <input name="exampleText" value="test text" />
     <input type="submit" />
 </form>*@
+<script>
+    @*Tutaj wczytujemy dane z ktnotrolera.
+        *@
+    hostUrl = '@Url.Action("AuthenticateUser","Home")';
+
+    let buttonClickAction = (event) => {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            document.getElementById("authBtn").click();
+        };
+    }
+    document.getElementById("loginInput").addEventListener("keyup", buttonClickAction);
+    document.getElementById("passwordInput").addEventListener("keyup", buttonClickAction);
+</script>

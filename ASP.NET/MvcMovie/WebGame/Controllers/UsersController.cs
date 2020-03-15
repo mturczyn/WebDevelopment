@@ -27,13 +27,19 @@ namespace WebGame.Controllers
     }
 
     [HttpPost]
-    public IActionResult Create([Bind("FirstName,LastName")]User user, int roleId)
+    public IActionResult Create([Bind("FirstName,LastName,Login,Password")]User user)
     {
-      var role = _context.Role.Where(r => r.Id == roleId).FirstOrDefault();
+      if (_context.User.Any(u => u.Login == user.Login))
+      {
+        ViewBag.UserExists = true;
+        return View("Create");
+      }
+
+      var role = _context.Role.Where(r => r.RoleName == "User").FirstOrDefault();
       user.UserToRole.Add(new UserToRole() { User = user, Role = role });
       _context.User.Add(user);
       _context.SaveChanges();
-      return View("~/Views/Home/Index");
+      return View("~/Views/Home/Index.cshtml");
     }
   }
 }
