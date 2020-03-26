@@ -1,0 +1,14 @@
+html {
+	background: #DEAF;
+}
+p:first-letter {
+	font-size: 30px;
+	border: 1px solid black;
+}
+/* Przykład użycia reguły @media print
+@media print {
+	html {
+		background: #FACADE;
+	}
+}
+*/ 
