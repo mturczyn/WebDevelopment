@@ -2,3 +2,6 @@ Elementy input można parować z elementami label za pomocą atrybutu for (równ
 
 <label for="username">Username</label>
 <input type="text" name="username" id="username">
+
+PRACA NA BRANCHU
+Lorem ipusm lorem ipsum blabla bla
