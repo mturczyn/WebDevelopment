@@ -1,0 +1,13 @@
+﻿Prosty system do wymiany wiadomości (może później plików).
+Czyli:
+- użytkownik po zalogowaniu się ma listę użytkowników serwisu,
+- zanim będzie można napisać do kogoś muszą być znajomymi,
+--- zatem będzie trzeba wysłać zaproszenie, które potem drugi użytkownik zaakceptuje,
+- po  wyborze użytkownika, może napisać do niego wiadomość,
+- wiadomości muszą być archiwizowane w bazie danych, ale tylko do pewnej daty,
+
+Dodatkowo można załączyć jakieś gry w JSie (mam juz grę):
+- najlepsze wyniki
+- historia gier
+- może jakaś P2P ?
+

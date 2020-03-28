@@ -1,0 +1,16 @@
+﻿Notatki:
+- przyglądając się facebookowi, widzimy, że każda wysłana wiadomość generuje metodę HTTP POST, której daną jest tresć wiadomości,
+
+Zastanawiając się, jak wysłać wiadomość do serwera i móc ją u siebie wyświetlić, musimy:
+- wysłać HTTP POST z wiadomością
+- zaktualizować nasze UI
+1 sposób: wysyłamy wiadomość, od razu wyświetlamy ją w UI
+  Wada: jak wysyłanie się nie powiedzie, to wtedy stan naszej apki jest nieprawidłowy
+
+2 sposób: wysyłamy, wyzwalając akcję kontrolera przyciskiem, a następnie pobieramy dane spowrotem z serwera,
+jak pomyślnie wyślemy dane to je odbierzemy z powrotem, jak nie, to nie będziemy ich mieli
+  Wada: po co dwa razy wysyłać zapytanie do serwera, wpierw z wiadomością, potem żeby ją pobrać.
+
+3 sposób: wysyłamy wiadomość, ale akcja UI nie wywołuje bezpośrednio akcji kontrolera, ale wywołuje JSa,
+który wysyła AJAXa, na którego dostaniemy odpowiedź i w zależności od niej możemy w JSie zaktualizować UI
+bez konieczności pobierania ponownego danych.
