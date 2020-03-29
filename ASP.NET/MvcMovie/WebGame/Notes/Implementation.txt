@@ -14,3 +14,14 @@ jak pomyślnie wyślemy dane to je odbierzemy z powrotem, jak nie, to nie będzi
 3 sposób: wysyłamy wiadomość, ale akcja UI nie wywołuje bezpośrednio akcji kontrolera, ale wywołuje JSa,
 który wysyła AJAXa, na którego dostaniemy odpowiedź i w zależności od niej możemy w JSie zaktualizować UI
 bez konieczności pobierania ponownego danych.
+  Wada: nie wiemy jak odebrać wiadomości od innych klientów. Potrzebujemy dostawać notyfikacje z serwera, serwer nam musi
+  wysłać sam wiadomość na nasze urządzenie.
+
+4 sposób: wykorzystanie biblioteki SignalR.
+
+===================================
+DALSZA SPECYFIKACJA: 
+- musimy móc jakoś obsługiwać wiadomości, czyli zapis do archiwum,
+- jak juz mamy archiwum, to wyświetlanie najświeższych wiadomości,
+- wysyłanie nie do wszystkich podłączonych, tylko do konkretnego klienta, który powinien być zmapowany z
+zalogowanym uzytkownikiem

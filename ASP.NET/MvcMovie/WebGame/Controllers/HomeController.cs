@@ -5,7 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebGame.Models;
-using Newtonsoft; 
+using Newtonsoft;
+using Microsoft.AspNet.SignalR;
+using Microsoft.AspNet.SignalR.Hubs;
 
 namespace WebGame.Controllers
 {
@@ -63,8 +65,10 @@ namespace WebGame.Controllers
         return Json(new { status = false, message = "login or password was null" });
       }
 
-      var loginResult = _context.User.Where(u => u.Login == login && u.Password == password).Any();
-      string redirectTo = Url.Action("Index", "Users");
+      var loggedUser = _context.User.Where(u => u.Login == login && u.Password == password).FirstOrDefault();
+      var loginResult = loggedUser != null;
+
+      string redirectTo = Url.Action("Index", "Message");
       return Json(new { status = loginResult, redirect = redirectTo });
     }
   }

@@ -10,13 +10,17 @@
     <meta name="viewport" content="width=device-width" />
     <title>Chat</title>
 
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/js/MessagesHandler.js"></script>
 </head>
 <body>
     <ul id="chat">
     </ul>
-    <input id="message" type="text" />
-    <button onclick="SendMessage()">Send</button>
+    <input id="sendTo" type="text" />
+    <button onclick="setChatRoom()">Set chat room</button>
+
+    <input id="message" type="text" disabled/>
+    <button onclick="sendMessage()" id="btnSend" disabled>Send</button>
 </body>
 </html>

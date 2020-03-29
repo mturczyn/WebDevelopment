@@ -16,7 +16,7 @@ namespace WebGame.Controllers
     {
       return View("~/Views/Chat.cshtml");
     }
-
+    // Stara metoda obsługi wysyłania wiadomości.
     public string HandleMessage(string message)
     {
       messages.Add(message);

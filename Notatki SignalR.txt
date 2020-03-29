@@ -1,0 +1,17 @@
+SignalR w ASP.NET
+
+SignalR jest to biblioteka JSa (.NET również ma taką bibliotekę, do obsługi po stronie C#, serwera), która umożliwia komunikację obustronną między klientem a serwerem.
+
+Techniki komunikacji:
+- WebSockets
+- Server-Sent Events
+- Long Polling
+Automatycznie jest wybierana najlepsza technika.
+
+Automatycznie obsługuje dysozycje pomiędzy maszynami ("SignalR handles the dispatching across machine boundaries automatically").
+
+Jej podstawą są tzw. huby, czyli takie "centra wymiany danych", które są odpowiedzialne za komunikację serwer-klient.
+
+SignalR obsługuje dwa protokoły: binarny MessagePack oraz tekstowy oparty o JSON.
+
+Pozwala przekazywać silnie typowane argumenty.
