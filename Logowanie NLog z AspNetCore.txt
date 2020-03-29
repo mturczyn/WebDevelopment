@@ -1,0 +1,14 @@
+NLog:
+- trzeba doadć plik konfiguracyjny nlog.config do projektu (w bazowej lokalizacji)
+- trzeba mieć Nugeta NLog.Extensions , w którym mamy metodę ILoggingBuilder.AddNlog(), którą używamy w Program.cs przy budowaniu Hosta:
+
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .UseStartup<Startup>()
+      .ConfigureLogging(logging =>
+      {
+        // wyłączamy wcześniejsze logowania, jeśli jakieś były
+        logging.ClearProviders();
+~~~~~~> logging.AddNLog();
+      });
+	  

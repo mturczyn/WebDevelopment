@@ -1,5 +1,5 @@
 ﻿@{
-  ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home Page";
 }
 <p>
     Welcome to our page! Please log in in order to use capabilities of this page:
@@ -20,18 +20,20 @@
         <tr>
             <td>
                 <button id="authBtn" class="btn" onclick="handleLogin()" type="button">Login</button>
-            </td><!-- Tak możemy się pozbyć niechcianych białych znaków między tagami i mieć czysty kod.
-         --><td>
+            </td>
+            <!-- Tak możemy się pozbyć niechcianych białych znaków między tagami i mieć czysty kod.
+            -->
+            <td>
                 <button id="createNewUser" class="btn" onclick="window.location.href='@Url.Action("Create", "Users")'">Create New</button>
             </td>
         </tr>
     </table>
 </fieldset>
 @* Tutaj mamy przykład, w którym dane z formy będa przekazane do zdef. przez nas akcji Contact w kontrolerze Home.
-<form method="post" action="@Url.Action("Contact", "Home")">
-    <input name="exampleText" value="test text" />
-    <input type="submit" />
-</form>*@
+    <form method="post" action="@Url.Action("Contact", "Home")">
+        <input name="exampleText" value="test text" />
+        <input type="submit" />
+    </form>*@
 <script>
     @*Tutaj wczytujemy dane z ktnotrolera.
         *@
@@ -46,3 +48,5 @@
     document.getElementById("loginInput").addEventListener("keyup", buttonClickAction);
     document.getElementById("passwordInput").addEventListener("keyup", buttonClickAction);
 </script>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/InitSignalR.js"></script>

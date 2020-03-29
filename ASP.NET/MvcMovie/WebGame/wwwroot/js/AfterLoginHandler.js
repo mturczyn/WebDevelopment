@@ -1,4 +1,6 @@
-﻿var hostUrl;
+﻿'use strict';
+
+var hostUrl;
 
 function handleLogin() {
     var username = $('input[name$="loginName"]').val();
@@ -7,6 +9,7 @@ function handleLogin() {
     var json = {
         username: username,
         password: password,
+        connectionId: document.connection.connectionId,
     };
 
     $.ajax({

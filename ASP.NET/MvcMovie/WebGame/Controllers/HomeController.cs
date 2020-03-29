@@ -13,11 +13,13 @@ namespace WebGame.Controllers
 {
   public class HomeController : Controller
   {
-    private WebAppDbContext _context;
+    private readonly WebAppDbContext _context;
     private object _portNumber;
+    private readonly NLog.Logger _logger;
     public HomeController(WebAppDbContext ctx)
     {
       _context = ctx;
+      _logger = NLog.LogManager.GetCurrentClassLogger();
     }
 
     public IActionResult Index()
@@ -59,16 +61,30 @@ namespace WebGame.Controllers
       dynamic deserializedJson = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
       string login = deserializedJson.username?.ToString();
       string password = deserializedJson.password?.ToString();
+      string connectionId = deserializedJson.connectionId;
+      _logger.Info("Próba zalogowania z połączenia o identyfikatorze SignalR: " + connectionId +
+        ", ID połączenia http: " + this.HttpContext.Connection.Id);
 
-      if(login == null || password == null)
+      if (login == null || password == null)
       {
         return Json(new { status = false, message = "login or password was null" });
       }
 
       var loggedUser = _context.User.Where(u => u.Login == login && u.Password == password).FirstOrDefault();
       var loginResult = loggedUser != null;
+      string redirectTo;
+      if (loginResult == true)
+      {
+        ConnectionsManager.AddConnection(loggedUser.Id, connectionId);
+        _logger.Info("Zalogowano pomyślnie.");
+        redirectTo = Url.Action("Index", "Message");
+      }
+      else
+      {
+        _logger.Info("Logowanie się nie powiodło.");
+        return Json(new { status = false, message = "Logowanie nie powiodło się." });
+      }
 
-      string redirectTo = Url.Action("Index", "Message");
       return Json(new { status = loginResult, redirect = redirectTo });
     }
   }

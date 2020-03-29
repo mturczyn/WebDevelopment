@@ -1,24 +1,9 @@
-﻿'use strict';
-
-var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
-
-connection.on("ReceiveMessage", (message) => {
-    let listItem = document.createElement('li');
-    listItem.appendChild(document.createTextNode(message));
-    let chat = document.getElementById("chat");
-    chat.appendChild(listItem);
-});
-
-connection.start().then(() => {
-    console.log("SignalR: Start komunikacji...");
-}).catch((err) => {
-    return console.error(err.toString());
-});
+﻿
 
 function sendMessage() {
     let message = document.getElementById('message').value;
     let chatRoom = document.getElementById('sendTo').value;
-    connection.invoke("SendMessage", message, chatRoom).catch((err) => {
+    document.connection.invoke("SendMessage", message, chatRoom).catch((err) => {
         return console.error(err.toString());
     });
     event.preventDefault();
@@ -26,7 +11,7 @@ function sendMessage() {
 
 function setChatRoom() {
     let chatRoom = document.getElementById('sendTo').value;
-    connection.invoke("SetRecipent", chatRoom).then(() => {
+    document.connection.invoke("SetRecipent", chatRoom).then(() => {
         document.getElementById('message').disabled = false;
         document.getElementById('btnSend').disabled = false;
     }).catch((err) => {
