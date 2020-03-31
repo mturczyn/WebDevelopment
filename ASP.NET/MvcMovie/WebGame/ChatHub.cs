@@ -1,37 +1,45 @@
-﻿using Microsoft.AspNet.SignalR.Hubs;
-using Microsoft.AspNetCore.SignalR;
+﻿using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
+using WebGame.Controllers;
 
 namespace WebGame
 {
-  public class ChatHub : Microsoft.AspNetCore.SignalR.Hub
+  public class ChatHub : Hub
   {
-    private static Dictionary<int, string> userConnectionIds = new Dictionary<int, string>();
-
-    public bool AddLoggedUserConnection(int userId)
-    {
-      userConnectionIds.Add(userId, Context.ConnectionId);
-      return true;
-    }
-
+    private readonly NLog.Logger _logger;
     // W celach debugowych, żeby zobaczyć kiedy jest tworzony.
     // Podczas każdego wywołania jest tworzona nowa instancja.
-    public ChatHub() { }
+    public ChatHub()
+    {
+      _logger = NLog.LogManager.GetCurrentClassLogger();
+      // Przy wywołaniu konstruktora kontekst jest nullem.
+      //var userId = this.Context.UserIdentifier;
+      //var u2 = this.Context.User.Identity;
+    }
     // Metoda może być wywołana przez dowolnego klienta,
     // aby wysłać wiadomość do wszystkich podłączonych klientów.
-    public async Task SendMessage(string message, string chatRoom)
+    public async Task SendMessage(string message, string user)
     {
-      //Clients.Clients()
-      //var allClients = Clients.All;
-      await Clients.Group(chatRoom).SendAsync("ReceiveMessage", message).ConfigureAwait(false);
+      _logger.Info($"Wysyłanie wiadomości do {user}");
+      await Clients.User(user).SendAsync("ReceiveMessage", message).ConfigureAwait(false);
+      _logger.Info($"Widomość do {user} pomyślnie wysłana.");
     }
-    public async Task SetRecipent(string chatRoom)
+
+    public override Task OnConnectedAsync()
     {
-      await Groups.AddToGroupAsync(Context.ConnectionId, chatRoom);
-      await Clients.Group(chatRoom).SendAsync("ReceiveMessage", $"{Context.ConnectionId} has joined the group '{chatRoom}'.");
+      _logger.Info($"Próba rozpoczęcia połączenia SignalR, użytkownik {Context.UserIdentifier ?? "null"}");
+      return base.OnConnectedAsync();
+    }
+
+    public override Task OnDisconnectedAsync(Exception exception)
+    {
+      var disconnectedTask = base.OnDisconnectedAsync(exception);
+      _logger.Info("Zakończenie połączenia SignalR");
+      return disconnectedTask;
     }
   }
 }

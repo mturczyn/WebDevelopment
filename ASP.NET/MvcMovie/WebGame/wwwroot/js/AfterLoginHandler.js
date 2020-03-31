@@ -9,7 +9,7 @@ function handleLogin() {
     var json = {
         username: username,
         password: password,
-        connectionId: document.connection.connectionId,
+        connectionId: connection.connectionId,
     };
 
     $.ajax({

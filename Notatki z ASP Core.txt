@@ -4,3 +4,26 @@ Przesyłanie danych z HTMLa do backendu:
 
 URUCHAMIANIE APLIKACJI PRZY POMOCY CTRL+F5	
 Wówczas wszelkie zmiany w kodzie są od razu widoczne w aplikacji (przeglądarce). Niekiedy to wywołuje Build projektu.
+
+=== SESJE HTTP
+
+Używanie sesji w aplikacjach webowych pozwala na wprowadzanie stanów za pomocą
+obiketu  HttpContext.Session. Domyslnie w ASP nie używa się sesji, jednak za pomocą
+metody
+
+  services.AddSession(); // w metodzie ConfigureServices
+  app.UseSession();      // w metodzie Configure
+  
+włączamy tę funkcjonalność w pliku Startup.cs.
+
+=== PRZEKAZYWANIE HttpContext do innych serwisów
+
+Jeśli w innych klasach aplikacji musimy mieć dostęp do kontekstu HTTP, to robi się to następująco:
+
+- w metodzie Startup.ConfigureServices używamy:
+
+    services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+To powoduje, że do konstruktorów serwisów (takich jak IUserIdProvider) przekazywany jest obiekt HttpContextAccessor. Wówczas zmieniamy konstruktor serwisu (np. IUserIdProvider) na 
+
+    public UserIdProvider(HttpContextAccessor httpContextAccessor) {//zapisujemy sobie do zmiennej globalnej}

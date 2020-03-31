@@ -15,3 +15,21 @@ Jej podstawą są tzw. huby, czyli takie "centra wymiany danych", które są odp
 SignalR obsługuje dwa protokoły: binarny MessagePack oraz tekstowy oparty o JSON.
 
 Pozwala przekazywać silnie typowane argumenty.
+
+=======================================
+=== WŁASNE UserIdentifier w signalR ===
+
+Aby używać własnych identyfikatórów uzytkwoników w SignalR, należy zdefiniować klasę dziedziczącą po IUserIdProvider, a następnie zadeklarować serwis:
+
+    services.AddSingleton<IUserIdProvider, UserIdProvider>();
+	
+w metodzie UseServices w Startup.cs. Korzystając z sesji HTTP, możemy w niej zapisać login, który potem odczytamy w klasie IUserIdProvider.
+Jednak w tym celu w tej klasie tez musimy mieć dostęp do kontekstu HTTP, a to robi się następująco:
+
+- w metodzie Startup.ConfigureServices używamy:
+
+    services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+To powoduje, że do konstruktorów serwisów (takich jak IUserIdProvider) przekazywany jest obiekt HttpContextAccessor. Wówczas zmieniamy konstruktor serwisu (np. IUserIdProvider) na 
+
+    public UserIdProvider(HttpContextAccessor httpContextAccessor) {//zapisujemy sobie do zmiennej globalnej}

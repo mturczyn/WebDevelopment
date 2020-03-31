@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,16 +30,19 @@ namespace WebGame
     {
       services.Configure<CookiePolicyOptions>(options =>
       {
-              // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-              options.CheckConsentNeeded = context => true;
+        // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+        options.CheckConsentNeeded = context => false;
         options.MinimumSameSitePolicy = SameSiteMode.None;
       });
       services.Configure<MvcOptions>(op => op.EnableEndpointRouting = false);
       services.AddDbContext<Models.WebAppDbContext>(options => 
         options.UseSqlServer(Configuration.GetConnectionString("WebAppDb"))
       );
+      services.AddSession();
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
       services.AddSignalR();
+      services.AddSingleton<IUserIdProvider, UserIdProvider>();
+      services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,6 +68,7 @@ namespace WebGame
       //});
 
       app.UseCookiePolicy();
+      app.UseSession();
 
       app.UseMvc(routes =>
       {

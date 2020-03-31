@@ -8,6 +8,7 @@ using WebGame.Models;
 using Newtonsoft;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
+using System.Security.Principal;
 
 namespace WebGame.Controllers
 {
@@ -27,7 +28,8 @@ namespace WebGame.Controllers
       // Jest to głowna strona, także tutaj na pewno pobierzemy port, na którym obecnie pracujemy.
       _portNumber = Request.HttpContext.Connection.LocalPort;
       ViewData["PortNumber"] = _portNumber;
-      return View();
+      var view = View();
+      return view;
     }
 
     public IActionResult About()
@@ -61,9 +63,7 @@ namespace WebGame.Controllers
       dynamic deserializedJson = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
       string login = deserializedJson.username?.ToString();
       string password = deserializedJson.password?.ToString();
-      string connectionId = deserializedJson.connectionId;
-      _logger.Info("Próba zalogowania z połączenia o identyfikatorze SignalR: " + connectionId +
-        ", ID połączenia http: " + this.HttpContext.Connection.Id);
+      _logger.Info("Próba zalogowania z połączenia o identyfikatorze połączenia http: " + this.HttpContext.Connection.Id);
 
       if (login == null || password == null)
       {
@@ -72,20 +72,28 @@ namespace WebGame.Controllers
 
       var loggedUser = _context.User.Where(u => u.Login == login && u.Password == password).FirstOrDefault();
       var loginResult = loggedUser != null;
-      string redirectTo;
+
       if (loginResult == true)
       {
-        ConnectionsManager.AddConnection(loggedUser.Id, connectionId);
-        _logger.Info("Zalogowano pomyślnie.");
-        redirectTo = Url.Action("Index", "Message");
+        try
+        {
+          this.HttpContext.Session.Set(UserIdProvider.SESSION_LOGIN_KEY, loggedUser.Login.Select(ch => (byte)ch).ToArray());
+          _logger.Info($"Zapisano użytkownika {loggedUser.Login} w sesji o ID {HttpContext.Session.Id}");
+        }
+        catch(Exception ex)
+        {
+          _logger.Error(ex);
+          return Json(new { status = false, message = "Błąd w trakcie logowania." });
+        }
+        _logger.Info($"Zalogowano pomyślnie użytkownika {loggedUser.Login}.");
+        string redirectTo = Url.Action("Index", "Message");
+        return Json(new { status = loginResult, redirect = redirectTo });
       }
       else
       {
         _logger.Info("Logowanie się nie powiodło.");
         return Json(new { status = false, message = "Logowanie nie powiodło się." });
       }
-
-      return Json(new { status = loginResult, redirect = redirectTo });
     }
   }
 }

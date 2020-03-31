@@ -1,6 +1,8 @@
 ﻿'use strict';
 
-var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
+var connection = new signalR.HubConnectionBuilder()
+    .withUrl("/chatHub")//, { accessTokenFactory: () => this.loginToken })
+    .build();
 
 connection.on("ReceiveMessage", (message) => {
     let listItem = document.createElement('li');

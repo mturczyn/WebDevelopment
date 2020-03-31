@@ -159,4 +159,6 @@ C:\Users\Mi\Desktop\GIT repos\Webówka\ASP.NET\MvcMovie\WebGame\bin\Debug\netcor
 C:\Users\Mi\Desktop\GIT repos\Webówka\ASP.NET\MvcMovie\WebGame\bin\Debug\netcoreapp3.1\NLog.dll
 C:\Users\Mi\Desktop\GIT repos\Webówka\ASP.NET\MvcMovie\WebGame\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
 C:\Users\Mi\Desktop\GIT repos\Webówka\ASP.NET\MvcMovie\WebGame\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+C:\Users\Mi\Desktop\GIT repos\Webówka\ASP.NET\MvcMovie\WebGame\bin\Debug\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
+C:\Users\Mi\Desktop\GIT repos\Webówka\ASP.NET\MvcMovie\WebGame\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Cryptography.Pkcs.dll
 C:\Users\Mi\Desktop\GIT repos\Webówka\ASP.NET\MvcMovie\WebGame\obj\Debug\netcoreapp3.1\WebGame.MvcApplicationPartsAssemblyInfo.cache

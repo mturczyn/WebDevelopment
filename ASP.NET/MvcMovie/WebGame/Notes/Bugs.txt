@@ -1,0 +1,9 @@
+﻿#1
+================================
+Nie działa wysyłanie wiadomości do kompa.
+Było spowodowane to tym, że przeglądarka nie trzymała sesji. Więc traciliśmy login użytkownika, a tym samym identyfikator dla SignalR.
+Pomogło rozwiązanie na https://stackoverflow.com/questions/52601190/httpcontext-session-not-maintaining-state 
+
+>> I had to change `options.CheckConsentNeeded = context => true;` to `false` and it worked (in Startup class ConfigureServices method)
+
+SOLVED ==========================
