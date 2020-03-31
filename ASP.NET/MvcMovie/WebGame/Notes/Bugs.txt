@@ -6,4 +6,6 @@ Pomogło rozwiązanie na https://stackoverflow.com/questions/52601190/httpcontex
 
 >> I had to change `options.CheckConsentNeeded = context => true;` to `false` and it worked (in Startup class ConfigureServices method)
 
+To zmieniało tyle, że przeglądarka akceptuje od razu pliki cookie na tej stronie, co ogólnie nie jest zalecane (szczególnie prawnie).
+Więc niekoniecznie trzeba to zmeinać, jednak na stronie wtedy trzeba używać ciasteczek (cookie).
 SOLVED ==========================
