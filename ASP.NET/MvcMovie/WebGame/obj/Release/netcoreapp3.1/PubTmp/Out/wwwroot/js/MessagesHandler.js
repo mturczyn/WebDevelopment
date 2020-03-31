@@ -1,18 +1,22 @@
-﻿
+﻿connection.on("ReceiveMessage", (message) => {
+    let listItem = document.createElement('li');
+    listItem.appendChild(document.createTextNode(message));
+    let chat = document.getElementById("chat");
+    chat.appendChild(listItem);
+});
 
-function sendMessage() {
+function sendMessage(recipent) {
     let message = document.getElementById('message').value;
-    let recipent = document.getElementById('sendTo').value;
     connection.invoke("SendMessage", message, recipent).catch((err) => {
         return console.error(err.toString());
     });
     event.preventDefault();
 }
-
-function setRecipent() {
-    document.getElementById('message').disabled = false;
-    document.getElementById('btnSend').disabled = false;
-}
+// Już mamy automatyczny wybór odbiorcy.
+//function setRecipent() {
+//    document.getElementById('message').disabled = false;
+//    document.getElementById('btnSend').disabled = false;
+//}
 /*
 // Pierwsza próba komunikacji: wysyłanie do serwera wiadomości + logika po stronie serwera.
 // Problemem było odbieranie wiadomości od innych uzytkowników.

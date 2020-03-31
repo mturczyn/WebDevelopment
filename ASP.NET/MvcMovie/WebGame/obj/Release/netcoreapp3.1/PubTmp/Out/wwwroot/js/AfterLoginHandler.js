@@ -9,7 +9,6 @@ function handleLogin() {
     var json = {
         username: username,
         password: password,
-        connectionId: connection.connectionId,
     };
 
     $.ajax({
@@ -23,7 +22,7 @@ function handleLogin() {
                 window.location.href = data.redirect;
             }
             else {
-                alert("Wrong login or password.");
+                alert(data.message);
             }
         },
         error: function (err) {

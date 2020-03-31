@@ -1,4 +1,4 @@
-﻿
+﻿@model WebGame.Models.UserWrapper
 @{
     Layout = null;
 }
@@ -16,12 +16,10 @@
     <script src="~/js/MessagesHandler.js"></script>
 </head>
 <body>
-    <ul id="chat">
-    </ul>
-    <input id="sendTo" type="text" />
-    <button onclick="setRecipent()">Set recipent</button>
-
-    <input id="message" type="text" disabled/>
-    <button onclick="sendMessage()" id="btnSend" disabled>Send</button>
+    <h1>Rozmowa z @Model.FullName (@Model.Login)</h1>
+    <div id="chat">
+    </div>
+    <input id="message" type="text" />
+    <button onclick="sendMessage('@Model.Login')" id="btnSend" >Send</button>
 </body>
 </html>

@@ -19,9 +19,3 @@ bez konieczności pobierania ponownego danych.
 
 4 sposób: wykorzystanie biblioteki SignalR.
 
-===================================
-DALSZA SPECYFIKACJA: 
-- musimy móc jakoś obsługiwać wiadomości, czyli zapis do archiwum,
-- jak juz mamy archiwum, to wyświetlanie najświeższych wiadomości,
-- wysyłanie nie do wszystkich podłączonych, tylko do konkretnego klienta, który powinien być zmapowany z
-zalogowanym uzytkownikiem

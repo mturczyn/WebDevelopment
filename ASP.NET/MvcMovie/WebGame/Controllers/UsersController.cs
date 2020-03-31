@@ -17,6 +17,7 @@ namespace WebGame.Controllers
     }
     public IActionResult Index()
     {
+      ViewBag.ConnectedUsers = ChatHub.ConnectedUsers;
       return View(_context.User.ToList());
     }
 

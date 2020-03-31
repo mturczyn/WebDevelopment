@@ -86,7 +86,7 @@ namespace WebGame.Controllers
           return Json(new { status = false, message = "Błąd w trakcie logowania." });
         }
         _logger.Info($"Zalogowano pomyślnie użytkownika {loggedUser.Login}.");
-        string redirectTo = Url.Action("Index", "Message");
+        string redirectTo = Url.Action("Index", "Users");
         return Json(new { status = loginResult, redirect = redirectTo });
       }
       else

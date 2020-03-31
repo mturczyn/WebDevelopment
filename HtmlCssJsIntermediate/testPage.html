@@ -2,11 +2,16 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="testStyles.css">
+		<script>
+			function f(mess) {
+				console.log(mess + " hello click");
+			}
+		</script>
 	</head>
 	<body>
 	
 	    <input id="sendTo" type="text" />
-		<button onclick="">Set recipent</button>
+		<button onclick="f('yo yo yo')">Set recipent</button>
 		<input disabled id="message" type="text" />
 		<button disabled>Send</button>
 

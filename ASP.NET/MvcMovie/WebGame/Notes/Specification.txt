@@ -11,3 +11,13 @@ Dodatkowo można załączyć jakieś gry w JSie (mam juz grę):
 - historia gier
 - może jakaś P2P ?
 
+=== PRYWATNE ROZMOWY
+- musimy móc jakoś obsługiwać wiadomości, czyli zapis do archiwum,
+- jak juz mamy archiwum, to wyświetlanie najświeższych wiadomości,
+- wysyłanie nie do wszystkich podłączonych, tylko do konkretnego klienta, który powinien być zmapowany z
+zalogowanym uzytkownikiem
+
+lepszy widok czatu:
+- po jednej stronie (lewej) wiadamości odebrane, z innym tłem, po prawej wiadomości wysłane
+
+HISTORIA, czyli zapis do bazy danych
