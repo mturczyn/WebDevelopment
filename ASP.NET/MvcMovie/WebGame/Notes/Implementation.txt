@@ -19,3 +19,15 @@ bez konieczności pobierania ponownego danych.
 
 4 sposób: wykorzystanie biblioteki SignalR.
 
+=== WYŚWIETLANIE WYSŁANYCH WIADOMOŚCI
+Chcemy, aby uzytkwonik też widział co wysłał, zatem możemy wziąć po udanym wysłaniu wyswietlić użytkownikowi jego wiadomość.
+Ale skąd wiemy, czy wiadomość została wysłana? Najlepszym pomysłem by było potwierdzenie ze strony klientów i wysłanie
+do nadawcy potwierdzenia:
+nadawca -- [wiadomość] --> serwer --> adresat
+kod JS adresata -- [potwierdzenie] --> serwer --> nadawca
+
+Zatem nadamy każdej wiadomości ID (w przyszłości może z bazy) i wyślemy potwierdzenie.
+
+Okienko wysyłania wiadomości blokujemy do momentu otrzymania potwierdzenie.
+UWAGA: jak sie nie powiedzie, to go nie odblokujemy, ale możemy jakiś timeout ustawić,
+który stwierdzi, że wysłanie sie nie powiodło, i odblokuje okienko.

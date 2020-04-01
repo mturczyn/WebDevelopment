@@ -5,9 +5,9 @@ using WebGame.Models;
 
 namespace WebGame.Controllers
 {
-  public class MessageController : Controller
+  public class ChatController : Controller
   {
-    public MessageController()
+    public ChatController()
     {
 
     }

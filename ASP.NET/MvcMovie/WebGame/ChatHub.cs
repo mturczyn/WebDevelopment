@@ -10,6 +10,13 @@ namespace WebGame
 {
   public class ChatHub : Hub
   {
+    /// <summary>
+    /// Do potwierdzania dostarczenia wiadomości. Nie działa, bo mamy nowy Hub za każdym razem (wysłanie wiadomości
+    /// oraz potwierdzenie). Nie możemy zroibć statycznej bo dwóch użytwkoników może wysłać w tej samej chwili
+    /// wiadomość i wtedy to ID się pomieszają.
+    /// </summary>
+    //private string _messageId;
+    private const string MID_SEPARATOR = " - ";
     private static HashSet<string> _loggedUsersIdentifiers = new HashSet<string>();
     public static string[] ConnectedUsers => _loggedUsersIdentifiers.ToArray();
     private readonly NLog.Logger _logger;
@@ -26,9 +33,24 @@ namespace WebGame
     // aby wysłać wiadomość do wszystkich podłączonych klientów.
     public async Task SendMessage(string message, string user)
     {
-      _logger.Info($"Wysyłanie wiadomości do {user}");
-      await Clients.User(user).SendAsync("ReceiveMessage", message).ConfigureAwait(false);
+      string messageId = Context.UserIdentifier + MID_SEPARATOR + new Random().Next(1000);
+
+      _logger.Info($"Wysyłanie wiadomości o identyfikatorze {messageId} do {user}");
+      await Clients.User(user).SendAsync("ReceiveMessage", message, messageId, Context.UserIdentifier).ConfigureAwait(false);
       _logger.Info($"Widomość do {user} pomyślnie wysłana.");
+    }
+    public async Task ConfirmMessage(string messageId)
+    {
+      _logger.Info($"Potwierdzenie wiadomości o identyfikatorze {messageId}.");
+      var confirmationData = messageId.Split(MID_SEPARATOR);
+      if(confirmationData.Length != 2)
+      {
+        _logger.Warn($"Dane potwierdzające wiadomość nie są poprawne. Zawartość [{string.Join(" ; ", confirmationData)}]");
+        return;
+      }
+      var sender = confirmationData[0];
+
+      await Clients.User(sender).SendAsync("ConfirmMessageToSender");
     }
 
     public override async Task OnConnectedAsync()

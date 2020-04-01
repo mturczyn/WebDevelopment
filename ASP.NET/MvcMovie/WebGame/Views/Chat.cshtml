@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>Chat</title>
 
+    <link rel="stylesheet" href="~/css/chat.css"/>
     <script src="~/js/signalr/dist/browser/signalr.js"></script>
     <script src="~/js/InitSignalR.js"></script>
     <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -17,9 +18,12 @@
 </head>
 <body>
     <h1>Rozmowa z @Model.FullName (@Model.Login)</h1>
-    <div id="chat">
+    <div id="chat-screen">
+        <div id="chat"></div>
+        <div id="messageForm">
+            <input id="message" type="text" />
+            <button onclick="sendMessage('@Model.Login')" id="btnSend">Send</button>
+        </div>
     </div>
-    <input id="message" type="text" />
-    <button onclick="sendMessage('@Model.Login')" id="btnSend" >Send</button>
 </body>
 </html>
