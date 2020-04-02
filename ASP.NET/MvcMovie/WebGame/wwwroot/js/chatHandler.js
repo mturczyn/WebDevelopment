@@ -1,4 +1,6 @@
-﻿connection.on("ReceiveMessage", (message, messageId, sentBy) => {
+﻿'use strict';
+
+connection.on("ReceiveMessage", (message, messageId, sentBy) => {
     let chat = document.getElementById("chat");
     chat.appendChild(createMessageElement(message, false));
     chat.scrollTop = chat.scrollHeight;

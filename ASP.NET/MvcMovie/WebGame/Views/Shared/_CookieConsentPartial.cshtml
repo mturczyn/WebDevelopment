@@ -1,13 +1,19 @@
 ﻿@using Microsoft.AspNetCore.Http.Features
 
 @{
-    var consentFeature = Context.Features.Get<ITrackingConsentFeature>();
-    var showBanner = !consentFeature?.CanTrack ?? false;
-    var cookieString = consentFeature?.CreateConsentCookie();
+  var consentFeature = Context.Features.Get<ITrackingConsentFeature>();
+  var showBanner = !consentFeature?.CanTrack ?? false;
+  var cookieString = consentFeature?.CreateConsentCookie();
+  Url.ActionContext.HttpContext.Request.RouteValues.TryGetValue("action", out object action);
+  Url.ActionContext.HttpContext.Request.RouteValues.TryGetValue("controller", out object controller);
 }
 
 @if (showBanner)
 {
+    if (!(action?.ToString() == "Privacy" && controller?.ToString() == "Home"))
+    {
+    <div id="block" style="background: rgba(0, 0, 0, 0.7); position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+    }
     <nav id="cookieConsent" class="navbar navbar-default navbar-fixed-top" role="alert">
         <div class="container">
             <div class="navbar-header">
@@ -25,7 +31,7 @@
                 </p>
                 <div class="navbar-right">
                     <a asp-controller="Home" asp-action="Privacy" class="btn btn-info navbar-btn">Learn More</a>
-                    <button type="button" class="btn btn-default navbar-btn" data-cookie-string="@cookieString">Accept</button>
+                    <button type="button" class="btn btn-default navbar-btn" data-cookie-string="@cookieString" onclick="document.getElementById('block').remove()">Accept</button>
                 </div>
             </div>
         </div>

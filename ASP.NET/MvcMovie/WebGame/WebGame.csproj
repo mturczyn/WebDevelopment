@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\js\AfterLoginHandler.js" />
+    <None Include="wwwroot\js\loginHandler.js" />
   </ItemGroup>
 
   <ItemGroup>

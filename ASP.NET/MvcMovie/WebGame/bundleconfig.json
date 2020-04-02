@@ -17,9 +17,9 @@
     "sourceMap": false
   },
   {
-    "outputFileName": "wwwroot/js/AfterLoginHandler.min.js",
+    "outputFileName": "wwwroot/js/loginHandler.min.js",
     "inputFiles": [
-      "wwwroot/js/AfterLoginHandler.js"
+      "wwwroot/js/loginHandler.js"
     ],
     "minify": {
       "enabled": true,
