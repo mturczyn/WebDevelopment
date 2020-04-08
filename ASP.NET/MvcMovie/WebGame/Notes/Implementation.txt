@@ -31,3 +31,17 @@ Zatem nadamy każdej wiadomości ID (w przyszłości może z bazy) i wyślemy po
 Okienko wysyłania wiadomości blokujemy do momentu otrzymania potwierdzenie.
 UWAGA: jak sie nie powiedzie, to go nie odblokujemy, ale możemy jakiś timeout ustawić,
 który stwierdzi, że wysłanie sie nie powiodło, i odblokuje okienko.
+
+ARCHIWIZACJA WIADOMOŚCI
+Należy zapisywać w bazie danych wiadomości użytkowników, także potrzebna jest tabela do zapisu wiadomości.
+Tabela:
+Message (
+    Id (int/bigint),
+    SentBy (login),
+    SentTo (login),
+    TimeSent (DateTime),
+    IsRead (bit),
+    MessageText (varchar),
+)
+Wyszukiwanie będzie najczęściej po uzytkownikach odbiorcach, dlatego dobrym pomysłem jest indeks na SentTo (jeśli klastrowy, to
+Id musi być nieklastrowe, nawet chyba indeks nie będzie potrzebny).

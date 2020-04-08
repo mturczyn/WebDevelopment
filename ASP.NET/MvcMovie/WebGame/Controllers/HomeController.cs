@@ -77,7 +77,7 @@ namespace WebGame.Controllers
       {
         try
         {
-          this.HttpContext.Session.Set(UserIdProvider.SESSION_LOGIN_KEY, loggedUser.Login.Select(ch => (byte)ch).ToArray());
+          this.HttpContext.Session.Set(UserIdProvider.SESSION_LOGIN_KEY, BitConverter.GetBytes(loggedUser.Id));
           _logger.Info($"Zapisano użytkownika {loggedUser.Login} w sesji o ID {HttpContext.Session.Id}");
         }
         catch(Exception ex)
@@ -86,7 +86,7 @@ namespace WebGame.Controllers
           return Json(new { status = false, message = "Błąd w trakcie logowania." });
         }
         _logger.Info($"Zalogowano pomyślnie użytkownika {loggedUser.Login}.");
-        string redirectTo = Url.Action("Index", "Users");
+        string redirectTo = Url.Action("Index", "Chat");
         return Json(new { status = loginResult, redirect = redirectTo });
       }
       else

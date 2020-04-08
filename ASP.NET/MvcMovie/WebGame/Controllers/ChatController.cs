@@ -1,20 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using WebGame.Models;
 
 namespace WebGame.Controllers
 {
   public class ChatController : Controller
   {
-    public ChatController()
+    private WebAppDbContext _context;
+    public ChatController(WebAppDbContext context)
     {
-
+      _context = context;
     }
 
-    public IActionResult Index(int id, string login, string fullName)
+    public IActionResult Index()
     {
-      return View("~/Views/Chat.cshtml", new UserWrapper(id, login, fullName));
+      ViewBag.ConnectedUsers = ChatHub.ConnectedUsers;
+      return View("~/Views/Chat.cshtml", _context.User.ToList());
     }
     // Stara metoda obsługi wysyłania wiadomości.
     //public string HandleMessage(string message)

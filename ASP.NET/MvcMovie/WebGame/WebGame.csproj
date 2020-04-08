@@ -7,6 +7,26 @@
   <ItemGroup>
     <Compile Remove="Migrations\20200127192541_Creating DB on new machine.cs" />
     <Compile Remove="Migrations\20200127192541_Creating DB on new machine.Designer.cs" />
+    <Compile Remove="Migrations\20200405194638_Dalsze udoskonalanie relacji.cs" />
+    <Compile Remove="Migrations\20200405194638_Dalsze udoskonalanie relacji.Designer.cs" />
+    <Compile Remove="Migrations\20200405194951_Dalsze udoskonalanie relacji, usuniecie relacji przed jej poprawą.cs" />
+    <Compile Remove="Migrations\20200405194951_Dalsze udoskonalanie relacji, usuniecie relacji przed jej poprawą.Designer.cs" />
+    <Compile Remove="Migrations\20200405195532_Dalsze udoskonalanie relacji, dodanie relacji.cs" />
+    <Compile Remove="Migrations\20200405195532_Dalsze udoskonalanie relacji, dodanie relacji.Designer.cs" />
+    <Compile Remove="Migrations\20200405195810_Dalsze udoskonalanie relacji, dodanie relacji.cs" />
+    <Compile Remove="Migrations\20200405195810_Dalsze udoskonalanie relacji, dodanie relacji.Designer.cs" />
+    <Compile Remove="Migrations\20200405201656_Dalsze udoskonalanie relacji, dodanie relacji.cs" />
+    <Compile Remove="Migrations\20200405201656_Dalsze udoskonalanie relacji, dodanie relacji.Designer.cs" />
+    <Compile Remove="Migrations\20200405201833_Dalsze udoskonalanie relacji, dodanie relacji.cs" />
+    <Compile Remove="Migrations\20200405201833_Dalsze udoskonalanie relacji, dodanie relacji.Designer.cs" />
+    <Compile Remove="Migrations\20200405202023_Dalsze udoskonalanie relacji, dodanie relacji.cs" />
+    <Compile Remove="Migrations\20200405202023_Dalsze udoskonalanie relacji, dodanie relacji.Designer.cs" />
+    <Compile Remove="Migrations\20200405202435_Dalsze udoskonalanie relacji, dodanie relacji.cs" />
+    <Compile Remove="Migrations\20200405202435_Dalsze udoskonalanie relacji, dodanie relacji.Designer.cs" />
+    <Compile Remove="Migrations\20200405202638_Dalsze udoskonalanie relacji, dodanie relacji.cs" />
+    <Compile Remove="Migrations\20200405202638_Dalsze udoskonalanie relacji, dodanie relacji.Designer.cs" />
+    <Compile Remove="Migrations\20200405203642_Dalsze udoskonalanie relacji, dodanie relacji.cs" />
+    <Compile Remove="Migrations\20200405203642_Dalsze udoskonalanie relacji, dodanie relacji.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

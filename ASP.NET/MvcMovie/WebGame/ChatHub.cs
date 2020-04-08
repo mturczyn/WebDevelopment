@@ -5,67 +5,94 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using WebGame.Controllers;
+using WebGame.Models;
 
 namespace WebGame
 {
   public class ChatHub : Hub
   {
-    /// <summary>
-    /// Do potwierdzania dostarczenia wiadomości. Nie działa, bo mamy nowy Hub za każdym razem (wysłanie wiadomości
-    /// oraz potwierdzenie). Nie możemy zroibć statycznej bo dwóch użytwkoników może wysłać w tej samej chwili
-    /// wiadomość i wtedy to ID się pomieszają.
-    /// </summary>
-    //private string _messageId;
-    private const string MID_SEPARATOR = " - ";
-    private static HashSet<string> _loggedUsersIdentifiers = new HashSet<string>();
-    public static string[] ConnectedUsers => _loggedUsersIdentifiers.ToArray();
+    private static HashSet<int> _loggedUsersIdentifiers = new HashSet<int>();
+    private WebAppDbContext _context;
+    public static int[] ConnectedUsers => _loggedUsersIdentifiers.ToArray();
     private readonly NLog.Logger _logger;
-    // W celach debugowych, żeby zobaczyć kiedy jest tworzony.
-    // Podczas każdego wywołania jest tworzona nowa instancja.
-    public ChatHub()
+
+    public ChatHub(WebAppDbContext context)
     {
       _logger = NLog.LogManager.GetCurrentClassLogger();
+      _context = context;
       // Przy wywołaniu konstruktora kontekst jest nullem.
       //var userId = this.Context.UserIdentifier;
       //var u2 = this.Context.User.Identity;
     }
-    // Metoda może być wywołana przez dowolnego klienta,
-    // aby wysłać wiadomość do wszystkich podłączonych klientów.
-    public async Task SendMessage(string message, string user)
-    {
-      string messageId = Context.UserIdentifier + MID_SEPARATOR + new Random().Next(1000);
 
-      _logger.Info($"Wysyłanie wiadomości o identyfikatorze {messageId} do {user}");
-      await Clients.User(user).SendAsync("ReceiveMessage", message, messageId, Context.UserIdentifier).ConfigureAwait(false);
-      _logger.Info($"Widomość do {user} pomyślnie wysłana.");
-    }
-    public async Task ConfirmMessage(string messageId)
+    public async Task SendMessage(string message, string userId, string messageUUID)
     {
-      _logger.Info($"Potwierdzenie wiadomości o identyfikatorze {messageId}.");
-      var confirmationData = messageId.Split(MID_SEPARATOR);
-      if(confirmationData.Length != 2)
+      _logger.Info($"Wysyłanie wiadomości o identyfikatorze {messageUUID} do użytkownika o ID {userId}");
+      var result = 0;
+      try
       {
-        _logger.Warn($"Dane potwierdzające wiadomość nie są poprawne. Zawartość [{string.Join(" ; ", confirmationData)}]");
+        _context.Message.Add(new Message()
+        {
+          Id = new Guid(messageUUID),
+          TimeSent = DateTime.Now,
+          IsRead = false,
+          MessageText = message,
+          SentBy = int.Parse(Context.UserIdentifier),
+          SentTo = int.Parse(userId),
+        });
+        result = await _context.SaveChangesAsync();
+      }
+      catch(Exception ex)
+      {
+        _logger.Error(ex);
+      }
+      // Nic nie zostało zmienone, więc żadna wiadomość nie trafiła do bazy.
+      if (result == 0)
+      {
+        _logger.Error($"Zapis wiadomości w bazie danych nie powiódł się.");
+      }
+
+      if (! _loggedUsersIdentifiers.Contains(int.Parse(userId)))
+      {
+        _logger.Info($"Użytkownik o ID {userId} nie jest podłączony do czatu. Wysyłanie potwierdzenia.");
+        await ConfirmMessage(messageUUID, Context.UserIdentifier);
         return;
       }
-      var sender = confirmationData[0];
-
-      await Clients.User(sender).SendAsync("ConfirmMessageToSender");
+      await Clients.User(userId).SendAsync("ReceiveMessage", message, messageUUID, Context.UserIdentifier).ConfigureAwait(false);
+      _logger.Info($"Widomość do użytkownika o ID {userId} pomyślnie wysłana.");
+    }
+    public async Task ConfirmMessage(string messageUUID, string sender)
+    {
+      //var message = _context.Message.Where(m => m.Id.ToString() == messageUUID).FirstOrDefault();
+      //if(message == null)
+      //{
+      //  _logger.Error($"Nie znaleziono wiadomości o UUID {messageUUID} .");
+      //  return;
+      //}
+      //message.IsRead = true;
+      //var result = await _context.SaveChangesAsync();
+      //if(result == 0)
+      //{
+      //  _logger.Error($"Nie powiodła się oznaczenie wiadomości o UUID {messageUUID} jako przeczytanej.");
+      //  return;
+      //}
+      _logger.Info($"Potwierdzenie dostarczenia wiadomości o identyfikatorze {messageUUID}.");
+      await Clients.User(sender).SendAsync("ConfirmMessageToSender", messageUUID);
     }
 
     public override async Task OnConnectedAsync()
     {
-      _logger.Info($"Próba rozpoczęcia połączenia SignalR, użytkownik {Context.UserIdentifier ?? "null"}");
-      _loggedUsersIdentifiers.Add(Context.UserIdentifier);
-# warning To może nie działać, trzeba przetestować i wrócić do returna. Tak samo w OnDisconnected
+      _logger.Info($"Próba rozpoczęcia połączenia SignalR, użytkownik o ID {Context.UserIdentifier ?? "null"}");
+      _loggedUsersIdentifiers.Add(int.Parse(Context.UserIdentifier));
       await base.OnConnectedAsync();
+      // Informujemy użytkowników o zmianie statusu.
       await Clients.All.SendAsync("UserConnectionChanged", Context.UserIdentifier, true);
     }
 
     public override async Task OnDisconnectedAsync(Exception exception)
     {
-      _logger.Info($"Kończenie połączenia SignalR użytkownika {Context.UserIdentifier ?? "null"}");
-      _loggedUsersIdentifiers.Remove(Context.UserIdentifier);
+      _logger.Info($"Kończenie połączenia SignalR użytkownika o ID {Context.UserIdentifier ?? "null"}");
+      _loggedUsersIdentifiers.Remove(int.Parse(Context.UserIdentifier));
       await base.OnDisconnectedAsync(exception);
       await Clients.All.SendAsync("UserConnectionChanged", Context.UserIdentifier, false);
       _logger.Info("Zakończenie połączenia SignalR");

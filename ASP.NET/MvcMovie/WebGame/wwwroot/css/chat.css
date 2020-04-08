@@ -3,8 +3,8 @@
 }
 
 #chat > div > span {
-    border: 0.01em solid black;
-    margin: 1% 0;
+    border: solid 0.05em black;
+    margin: 1%;
     padding: 1%;
     width: auto;
     max-width: 70%;
@@ -13,27 +13,36 @@
 }
 
 #chat {
-    margin: 1%;
+    margin: 1% 1% 1% 0;
     height: 80vh;
     overflow-y: scroll;
     background: lightgray;
 }
 
 #chat > .sent-message {
+
     text-align: right;
 }
 
 #chat > .sent-message > span {
+    border-radius: 1em 0 1em 1em;
     background: lightblue;
 }
 
 #chat > .received-message > span {
+    border-radius: 0 1em 1em 1em;
     background: white;
 }
 
 @media (min-width: 400px) {
     #chat-screen {
         width: 70%;
+        display: inline-block;
+        vertical-align: top;
+    }
+    #users-list {
+        width: 25%;
+        display: inline-block;
     }
 }
 
@@ -47,4 +56,15 @@
 
 #messageForm > button {
     width: 20%;
+}
+
+.active-user {
+    height: 0.5em;
+    width: 0.5em;
+    background: green;
+    border-radius: 50%;
+}
+
+#users-list tr:hover {
+    background: lightgray;
 }

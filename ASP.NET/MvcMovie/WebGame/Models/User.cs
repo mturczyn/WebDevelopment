@@ -16,5 +16,7 @@ namespace WebGame.Models
     public string Login { get; set; }
     public string Password { get; set; }
     public virtual ICollection<UserToRole> UserToRole { get; set; }
+    public virtual ICollection<Message> MessagesSent { get; set; }
+    public virtual ICollection<Message> MessagesReceived { get; set; }
   }
 }

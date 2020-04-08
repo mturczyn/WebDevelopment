@@ -27,14 +27,14 @@ namespace WebGame
     public string GetUserId(HubConnectionContext connection)
     {
       var session = _httpContextAccessor.HttpContext.Session;
-      session.TryGetValue(SESSION_LOGIN_KEY, out byte[] loginBA);
-      if (loginBA == null)
+      session.TryGetValue(SESSION_LOGIN_KEY, out byte[] userIdBA);
+      if (userIdBA == null)
       {
-        _logger.Error($"Nie mieliśmy loginu użytkownika w sesji o ID {session.Id}.");
+        _logger.Error($"Nie mieliśmy ID użytkownika w sesji o ID {session.Id}.");
         return null;
       }
 
-      return new string(loginBA.Select(b => (char)b).ToArray());
+      return BitConverter.ToInt32(userIdBA, 0).ToString();
     }
   }
 }
