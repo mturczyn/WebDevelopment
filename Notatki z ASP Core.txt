@@ -27,3 +27,32 @@ Jeśli w innych klasach aplikacji musimy mieć dostęp do kontekstu HTTP, to rob
 To powoduje, że do konstruktorów serwisów (takich jak IUserIdProvider) przekazywany jest obiekt HttpContextAccessor. Wówczas zmieniamy konstruktor serwisu (np. IUserIdProvider) na 
 
     public UserIdProvider(HttpContextAccessor httpContextAccessor) {//zapisujemy sobie do zmiennej globalnej}
+	
+MIDDLEWARE
+
+W metodzie Configure klasy Startup.cs możemy zdefiniować i zmodyfikować zapytanie Http. Odbywa się to za pomocą metody app.Use(...), gdzie app to argument lambdy w metodzie Configure. Sa to kolejne kroki, przez które przechodzi zapytanie HTTP. Jest to niejako scentralizowane miejsce, gdzie obsługujemy te zapytania, także możemy pewne globalne akcje tam zaszyć. Metoda app.Use ma sygnaturę:
+
+Use(Func<HttpContext, Func<Task>, Task> middleware)
+
+które implementujemy następująco:
+
+app.Use(async (context, nextAction) => {
+  // tutaj używamy obiektu context
+  // potem wywołujemy nextAction, aby zapytanie HTTP dalej było przetwarzane,
+  // lub nie, jeśli z jakiegoś powodu chcemy przerwać przetwarzanie, wówczas
+  // mamy do czynienia z tzw. short-circuting
+  // Np. przekazujemu do dalszego przetwarzania:
+  await nextAction();
+});
+
+Dobrą praktyką jest tutaj definiowanie metod rozszerzeń, zachowując konwencję Use<MIDDLEWARE>, np. UseCookiesVerification.
+
+Wywołania kolejnych middleware:
+
+midd 1
+      -> midd 2
+	           -> app.Run
+ reszta midd 2 <-
+reszta midd 1 <-
+
+Metoda app.Run odwraca kończy ten łancuch wywołań.

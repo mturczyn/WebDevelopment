@@ -13,6 +13,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
+using NLog;
+using WebGame;
 
 namespace WebGame
 {
@@ -20,6 +22,7 @@ namespace WebGame
   {
     public Startup(IConfiguration configuration)
     {
+      GlobalDiagnosticsContext.Set("Application", "My cool web application");
       Configuration = configuration;
     }
 
@@ -70,6 +73,50 @@ namespace WebGame
       app.UseCookiePolicy();
       app.UseSession();
 
+      // To samo co poniżej, tylko spakowane w metodę rozszerzenia.
+      // Można na tym przykładzie sprawdzić jak działają kolejne kroki
+      // przetwarzania. Czyli po kolejnym kroku wywływana jest reszta obecnego 
+      // kroku przetwarzania.
+      //app.UseCookiesVerificationForLoggedUser();
+
+      // Zawsze trzeba wywołać nextMiddlewareAction, ponieważ jest to kolejny krok
+      // w przetwarzaniu zapytania HTTP. Jeśli nie wywołamy, nasze przetwarzanie się
+      // tutaj zatrzyma i to będzie koniec.
+      app.Use(async (context, nextMiddlewareAction) =>
+      {
+        try
+        {
+          // Oczywiście da się to prosto napisać, to tylko wypróbowanie nowych cech C# 8.0
+          var isHomePageOrAuth = context.Request.Path switch
+          {
+            var x when x == "/" || x == "/Home/Index/" || x.ToString().Contains("Authenticate") => true,
+            _ => false
+          };
+
+          // Jeśli mamy autoryzację, to dalej normalnie przetwarzamy zapytanie i kończymy.
+          if (isHomePageOrAuth)
+          {
+            await nextMiddlewareAction();
+            return;
+          }
+
+          // Jak już tu jesteśmy, to próbujemy pobrać ciasteczko z ID użytkownika.
+          // Jak mamy zalogowanego użytkownika, to pozwalamy dalej budować i zwrócić odpowiednią
+          // stronę. Jak nie, to tylko zwracamy informację.
+          context.Session.TryGetValue(UserIdProvider.SESSION_LOGIN_KEY, out byte[] userId);
+          if (userId == null)
+          {
+            await context.Response.WriteAsync("Nie ma zalogowanego użytkownika!");
+          }
+
+          await nextMiddlewareAction();
+        }
+        catch (Exception ex)
+        {
+          // tylko do testów middleware
+        }
+      });
+
       app.UseMvc(routes =>
       {
         routes.MapRoute(
@@ -82,5 +129,42 @@ namespace WebGame
         endpoints.MapHub<ChatHub>("/chatHub");
       });
     }
+  }
+}
+
+public static class ExtensionsForAspNetCore
+{
+  public static void UseCookiesVerificationForLoggedUser(this IApplicationBuilder app)
+  {
+    app.Use(async (context, nextMiddlewareAction) =>
+    {
+      try
+      {
+        // Oczywiście da się to prosto napisać, to tylko wypróbowanie nowych cech C# 8.0
+        var isHomePage = context.Request.Path switch
+        {
+          var x when x == "/" || x == "/Home/Index/" || x.ToString().Contains("Authenticate") => true,
+          _ => false
+        };
+
+        if (isHomePage)
+        {
+          await nextMiddlewareAction();
+          return;
+        }
+
+        context.Session.TryGetValue(UserIdProvider.SESSION_LOGIN_KEY, out byte[] userId);
+        if (userId == null)
+        {
+          await context.Response.WriteAsync("Nie ma zalogowanego użytkownika!");
+        }
+
+        await nextMiddlewareAction();
+      }
+      catch (Exception ex)
+      {
+        // tylko do testów middleware
+      }
+    });
   }
 }

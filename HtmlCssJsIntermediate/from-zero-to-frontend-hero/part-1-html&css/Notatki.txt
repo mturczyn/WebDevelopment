@@ -1,0 +1,17 @@
+KONWENCJA NAZWNICTWA PLIKÓW
+wiele serwerów i komputerów jest case-sensitive, więc należy używać tylko i wyłącznie małej czcionki.
+Jako spacji należy używać myślników, ponieważ spacje niekiedy są traktowane jako separator nazw plików, czyli jeden plik może być odczytany jako dwa, natomiast w adresach URL jest zastępowana spacja kodem %20, ale maszyny mogą to różnie interpretować, także zaleca się myślniki. Ogólnie spacje pośród maszyn/języków programowania/systemów nie są jednakowo obsługiwane.
+Poza tym silnik wyszikania Google traktuje myślniki jako spacje.
+
+Zaleca się taką strukturę plików:
+Katalog z plikami strony
+- index.html - zazwyczaj strona główna, homepage
+- images - katalog z obrazkami/mediami
+- styles - katalog ze stylami
+- scripts - katlog z plikami JS
+
+Silniki (np. Google) wyszukujące używają elementu meta z atrybutem name="description".
+
+Facebook wprowadził nowe wartości dla metadanych (elementu meta): protokół Open Graph Data, który rozszerza wachlarz metadanych, które możemy zdefiniować, np. <meta name="og:image" ...> lub <meta name="og:descirption" ...>. Jest to używane przy załączaniu linków do innych stron na facebooku: dzięki temu linki są kreowane jako opis z grafiką.
+
+Podobnie twitter ma swój sposób na to: <meta name="twitter:title" ...> :)

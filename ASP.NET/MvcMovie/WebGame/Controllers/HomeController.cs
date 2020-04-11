@@ -9,6 +9,7 @@ using Newtonsoft;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
 using System.Security.Principal;
+using NLog;
 
 namespace WebGame.Controllers
 {

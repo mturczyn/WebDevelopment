@@ -7,6 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using NLog;
 using NLog.Extensions.Logging;
 using NLog.Web;
 
@@ -27,7 +28,8 @@ namespace WebGame
       {
         // wyłączamy wcześniejsze logowania, jeśli jakieś były
         logging.ClearProviders();
-        logging.AddNLog();
-      });
+        //logging.addnlog();
+      })
+      .UseNLog();
   }
 }
