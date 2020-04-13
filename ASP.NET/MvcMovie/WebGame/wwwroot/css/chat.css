@@ -67,4 +67,5 @@
 
 #users-list tr:hover {
     background: lightgray;
+    cursor: pointer;
 }

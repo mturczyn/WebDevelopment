@@ -2,6 +2,10 @@
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
+    "iis": {
+      "applicationUrl": "http://localhost/WebGame",
+      "sslPort": 0
+    },
     "iisExpress": {
       "applicationUrl": "http://localhost:53985",
       "sslPort": 44325
@@ -18,7 +22,15 @@
     "WebGame": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:5001;http://localhost:5000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:5001;http://localhost:5000"
+    },
+    "IIS local": {
+      "commandName": "IIS",
+      "launchBrowser": true,
+      "launchUrl": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

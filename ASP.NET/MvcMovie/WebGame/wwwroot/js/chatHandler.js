@@ -21,7 +21,8 @@ function generateUUID() { // Public Domain/MIT
 }
 
 connection.on("UserConnectionChanged", (userIdentifier, connected) => {
-    let userCell = document.querySelector(`#${userIdentifier} :first-child`);
+    let userRow = document.getElementById(userIdentifier.toString());
+    let userCell = userRow.firstElementChild;
     if (userCell) {
         let activeMark = document.createElement("div");
         activeMark.className = 'active-user';
@@ -55,12 +56,12 @@ connection.on("ConfirmMessageToSender", (messageUUID) => {
  * Funkcja wysyłająca wiadomość do wskazanego odbiorc.
  * @param {string} recipent Login odbiorcy.
  */
-function sendMessage(recipentId) {
+function sendMessage() {
     let messageBox = document.getElementById('message');
     let message = messageBox.value;
     messageBox.disabled = true;
     let messageUUID = generateUUID();
-    connection.invoke("SendMessage", message, recipentId, messageUUID).catch((err) => {
+    connection.invoke("SendMessage", message, conversationUserId.toString(), messageUUID).catch((err) => {
         return console.error(err.toString());
     });
     event.preventDefault();
