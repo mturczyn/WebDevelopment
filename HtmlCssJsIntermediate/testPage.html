@@ -3,22 +3,28 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="testStyles.css">
 		<script>
-			function f(mess) {
-				console.log(mess + " hello click");
+			function startAnimation() {
+				let name = 'Michal Turczyn';
+				//debugger;
+				let animel = document.getElementById('centered');
+				animel.className = 'centered-animation';
+				animel.style.marginTop = 0;
+				
+				//////
+				let tick = 1/name.length;
+				for(let i = 0; i < name.length; i++) {
+					setTimeout( () => animel.innerText = name.slice(0, i + 1), 50 * i);
+				}
 			}
 		</script>
 	</head>
 	<body>
 		<div id="divsContainer">
 		<div id="leftDiv">
-			<p>This is left DIV</p>
+			<div id="centered">This is left DIV</div>
 		</div>
-		<div id="rightDiv">
-			<p>This is right DIV, users:</p>
-			<ul>
-				<li> User One </li>
-				<li> User Two </li>
-			</ul>
+		<div id="rightDiv" disabled>
+		<button onclick='startAnimation()'>Start animation</button>
 		</div>
 		</div>
 	</body>

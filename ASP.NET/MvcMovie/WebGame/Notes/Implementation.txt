@@ -45,3 +45,26 @@ Message (
 )
 Wyszukiwanie będzie najczęściej po uzytkownikach odbiorcach, dlatego dobrym pomysłem jest indeks na SentTo (jeśli klastrowy, to
 Id musi być nieklastrowe, nawet chyba indeks nie będzie potrzebny).
+
+OBSŁUGA NOWEGO WIDOKU CZATU ORAZ ARCHIWUM WIADOMOŚCI
+
+Po wejsciu na stronę czatu nie mamy widoku czatu, tylko widok użytkowników.
+- po wejściu na stronę wszystko jest zablokowane i w okienku czatu widnieje odpowiedni
+ komunikat o wybraniu użytkownika
+
+Po wybraniu użytkownika, ten użytkwonik musi być podświetlony.
+- po kliknięciu po prostu zmienmy kolor temu elementowi HTML
+Po wybraniu użytkownika wyświetlamy czat (po ponownym kliknięciu wybranego użytkownika ni sie nie dzieje).
+- po wybraniu go, musimy sięgnąć do bazy, załadować ostatnie wiadomości i je wyświetlić (możnaby tu cache'ować wiadomości, aby nie pobierać ich z bazy za każdym razem)
+CACHE'owanie: zrobimy sobie strukturę danych (Map bodajże, słownik), gdzie będziemy zapisywać wiadomości pobrane z bazy, dla każdego użytkownika pobierzemy po sto ostatnich wiadomości (na razie nie umożliwimy mu porania daleszej historii)
+
+Po wejściu na czat, sprawdzamy czy mamy jakieś nieprzeczytane wiadmości.
+Grupujemy je i bierzemy wszystkie ID nadawców, aby na liście użytkowinków je podświetlić (np. pulsująco czerwono).
+
+Odbierając wiadomość u klietna, sprawdzamy czy nie mamy otwartego okienka z czatem (mamy obecnie wybrane ID użytkownika),
+jeśli tak, wyświetlamy wiadomość, jeśli nie, robimy podświetlenie w liscie użytkowników.
+
+OZNACZANIE WIADOMOŚCI JAKO PRZECZYTANEJ
+Gdy uzytkownik otwiera okno rozmowy z danym uzytkownikiem, automatycznie wszystkie wiadomości w bazie oznaczamy
+jako przeczytane.
+Jeśli mamy otwartą rozmowę z użytwkonikiem, to podczas wysyłania potwierdzenia dostarczenia wiadomości możemy oznaczyć ją jako przeczytaną.

@@ -2,7 +2,9 @@
     background: gray;
 }
 
-#chat > div > span {
+
+
+.messages-screen > div > span {
     border: solid 0.05em black;
     margin: 1%;
     padding: 1%;
@@ -12,24 +14,25 @@
     overflow-wrap: break-word;
 }
 
-#chat {
+.messages-screen {
     margin: 1% 1% 1% 0;
     height: 80vh;
     overflow-y: scroll;
     background: lightgray;
+    position: relative;
 }
 
-#chat > .sent-message {
+.messages-screen > .sent-message {
 
     text-align: right;
 }
 
-#chat > .sent-message > span {
+.messages-screen > .sent-message > span {
     border-radius: 1em 0 1em 1em;
     background: lightblue;
 }
 
-#chat > .received-message > span {
+.messages-screen > .received-message > span {
     border-radius: 0 1em 1em 1em;
     background: white;
 }
@@ -46,15 +49,15 @@
     }
 }
 
-#messageForm {
+#message-form {
     height: 10%;
 }
 
-#messageForm > input {
+#message-form > input {
     width: 75%;
 }
 
-#messageForm > button {
+#message-form > button {
     width: 20%;
 }
 
@@ -68,4 +71,30 @@
 #users-list tr:hover {
     background: lightgray;
     cursor: pointer;
+}
+
+#conversation-information {
+    text-align: center;
+}
+.conversation-information-no-user {
+    margin-top: 30vh;
+    background: lightgreen;
+}
+.conversation-user-animation {
+    animation: 1s start-conversation;
+    animation-fill-mode: forwards;
+}
+
+@keyframes start-conversation {
+    /*from {
+        margin-top: 30vh;
+    }*/
+    to {
+        margin-top: 0;
+        position: sticky;
+        top: 0;
+        width: 100%;
+        background: lightgreen;
+        opacity: 0.5;
+    }
 }

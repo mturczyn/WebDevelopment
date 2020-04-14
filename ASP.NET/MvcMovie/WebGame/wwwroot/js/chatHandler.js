@@ -1,5 +1,9 @@
 ﻿'use strict';
 
+disableMessagesScreen();
+
+// Do trzymania ID użytkownika.
+var conversationUserId;
 /**
  * Funckcja generująca globalnie unikatowy identyfikator (GUID).
  * Źródło: https://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
@@ -26,30 +30,30 @@ connection.on("UserConnectionChanged", (userIdentifier, connected) => {
     if (userCell) {
         let activeMark = document.createElement("div");
         activeMark.className = 'active-user';
-        userCell.appendChild(activeMark);
+        userCell.firstElementChild(activeMark);
         return;
     }
     console.warn(`Nie znaleziono użytkownika ${userIdentifier}`);
 });
 
 connection.on("ReceiveMessage", (message, messageUUID, sentBy) => {
-    let chat = document.getElementById("chat");
-    chat.appendChild(createMessageElement(message, false));
-    chat.scrollTop = chat.scrollHeight;
+    let messagesScreen = document.querySelector("div.messages-screen");
+    messagesScreen.appendChild(createMessageElement(message, false));
+    messagesScreen.scrollTop = messagesScreen.scrollHeight;
     connection.invoke("ConfirmMessage", messageUUID, sentBy).catch((err) => {
         return console.error(err.toString());
     });
 });
 
 connection.on("ConfirmMessageToSender", (messageUUID) => {
-    let messageBox = document.getElementById('message');
-    let message = messageBox.value;
-    messageBox.value = "";
-    messageBox.disabled = false;
+    let messageText = document.getElementById('message-text');
+    let message = messageText.value;
+    messageText.value = "";
+    messageText.disabled = false;
 
-    let chat = document.getElementById("chat");
-    chat.appendChild(createMessageElement(message, true));
-    chat.scrollTop = chat.scrollHeight;
+    let messagesScreen = document.querySelector("div.messages-screen");
+    messagesScreen.appendChild(createMessageElement(message, true));
+    messagesScreen.scrollTop = messagesScreen.scrollHeight;
 });
 
 /**
@@ -57,23 +61,18 @@ connection.on("ConfirmMessageToSender", (messageUUID) => {
  * @param {string} recipent Login odbiorcy.
  */
 function sendMessage() {
-    let messageBox = document.getElementById('message');
-    let message = messageBox.value;
-    messageBox.disabled = true;
+    if (!conversationUserId) {
+        console.warn("Nie wybrano żadnego użytkownika.");
+        return;
+    }
+    let messageText = document.getElementById('message-text');
+    let message = messageText.value;
+    messageText.disabled = true;
     let messageUUID = generateUUID();
     connection.invoke("SendMessage", message, conversationUserId.toString(), messageUUID).catch((err) => {
         return console.error(err.toString());
     });
     event.preventDefault();
-}
-
-var conversationUserId;
-/**
- * Rozpoczyna rozmowę z użytkownikiem.
- * @param {number} userId ID użytkownika.
- */
-function startConversationWithUser(userId) {
-    conversationUserId = userId;
 }
 
 /**
@@ -95,6 +94,48 @@ function createMessageElement(message, isUserMessage){
 
     return div;
 }
+
+/**
+ * Rozpoczyna rozmowę z użytkownikiem.
+ * @param {number} userId ID użytkownika.
+ */
+function startConversationWithUser(userId) {
+    conversationUserId = userId;
+
+    let messagesScreen = document.querySelector("div.messages-screen");
+    // Czyścimy jakąkolwiek zawartość, zostawaiając
+    // tylko komunikat o wybranym użytkowniku.
+    while (messagesScreen.childElementCount.length > 1) {
+        messagesScreen.removeChild(messagesScreen.lastElementChild);
+    }
+
+    let userInfo = messagesScreen.firstElementChild;
+    userInfo.classList.add('conversation-user-animation');
+
+    let name = 'Michał Turczyn';
+    for (let i = 0; i < name.length; i++) {
+        setTimeout(() => userInfo.innerText = name.slice(0, i + 1), 50 * i);
+    }
+}
+
+/**Czyści czat z wiadomości oraz "zapomina" ID użytkownika, z którym prowadzilismy rozmowę.
+ * Wyświetla na środku czatu odpowiednią informację.
+ * Stan braku wybranego użytkownika do rozmowy.
+ * */
+function disableMessagesScreen() {
+    conversationUserId = undefined;
+
+    let messagesScreen = document.querySelector("div.messages-screen");
+    // Czyścimy jakąkolwiek zawartość.
+    while (messagesScreen.childElementCount > 1) {
+        messagesScreen.removeChild(messagesScreen.lastElementChild);
+    }
+    let userInfo = messagesScreen.firstElementChild;
+    userInfo.classList.remove('conversation-user-animation');
+    userInfo.classList.add('conversation-information-no-user');
+    userInfo.innerText = 'WYBIERZ UŻYTKOWNIKA DO ROZMOWY';
+}
+
 // Już mamy automatyczny wybór odbiorcy.
 //function setRecipent() {
 //    document.getElementById('message').disabled = false;

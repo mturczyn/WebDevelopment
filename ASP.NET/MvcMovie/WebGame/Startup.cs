@@ -89,7 +89,7 @@ namespace WebGame
           // Oczywiście da się to prosto napisać, to tylko wypróbowanie nowych cech C# 8.0
           var isHomePageOrAuth = context.Request.Path switch
           {
-            var x when x == "/" || x == "/Home/Index/" || x.ToString().Contains("Authenticate") => true,
+            var x when x == "" || x == "/" || x == "/Home/Index/" || x.ToString().Contains("Authenticate") => true,
             _ => false
           };
 

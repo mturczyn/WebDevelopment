@@ -11,36 +11,39 @@
     <title>Chat</title>
 
     <link rel="stylesheet" href="~/css/chat.css" />
-    <script src="~/js/signalr/dist/browser/signalr.js"></script>
-    <script src="~/js/initSignalR.js"></script>
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/js/chatHandler.js"></script>
 </head>
 <body>
     <div id="chat-screen">
-        <div id="chat"></div>
-        <div id="messageForm">
-            <input id="message" type="text" />
-            <button onclick="sendMessage()" id="btnSend">Send</button>
+        <div class="messages-screen">
+            <div id="conversation-information">WYBIERZ UŻYTKOWNIKA DO ROZMOWY</div>
+        </div>
+        <div id="message-form">
+            <input id="message-text" type="text" />
+            <button onclick="sendMessage()" id="send-message">Send</button>
         </div>
     </div>
     <div id="users-list">
         <table>
             @foreach (var item in Model)
             {
-            <tr id="@item.Id" onclick="startConversationWithUser(@item.Id)">
-                <td>
-                    @if ((ViewBag.ConnectedUsers as int[]).Contains(item.Id))
-                    {
-                        <div class="active-user"></div>
-                    }
-                </td>
-                <td>
-                    @($"{item.FirstName} {item.LastName} ({item.Login})")
-                </td>
-            </tr>
+                <tr id="@item.Id" onclick="startConversationWithUser(@item.Id)">
+                    <td>
+                        @if ((ViewBag.ConnectedUsers as int[]).Contains(item.Id))
+                        {
+                            <div class="active-user"></div>
+                        }
+                    </td>
+                    <td>
+                        @($"{item.FirstName} {item.LastName} ({item.Login})")
+                    </td>
+                </tr>
             }
         </table>
     </div>
+
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/initSignalR.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/js/chatHandler.js"></script>
 </body>
 </html>

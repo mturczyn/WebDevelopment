@@ -30,7 +30,6 @@
     "IIS local": {
       "commandName": "IIS",
       "launchBrowser": true,
-      "launchUrl": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
