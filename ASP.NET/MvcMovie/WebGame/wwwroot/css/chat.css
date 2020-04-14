@@ -23,7 +23,6 @@
 }
 
 .messages-screen > .sent-message {
-
     text-align: right;
 }
 
@@ -61,7 +60,7 @@
     width: 20%;
 }
 
-.active-user {
+.active-user-mark {
     height: 0.5em;
     width: 0.5em;
     background: green;
@@ -95,6 +94,6 @@
         top: 0;
         width: 100%;
         background: lightgreen;
-        opacity: 0.5;
+        opacity: 0.7;
     }
 }

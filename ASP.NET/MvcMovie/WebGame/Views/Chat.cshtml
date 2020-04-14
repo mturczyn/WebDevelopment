@@ -8,6 +8,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <meta name="charset" value="utf-8" />
     <title>Chat</title>
 
     <link rel="stylesheet" href="~/css/chat.css" />
@@ -30,7 +31,7 @@
                     <td>
                         @if ((ViewBag.ConnectedUsers as int[]).Contains(item.Id))
                         {
-                            <div class="active-user"></div>
+                            <div class="active-user-mark"></div>
                         }
                     </td>
                     <td>

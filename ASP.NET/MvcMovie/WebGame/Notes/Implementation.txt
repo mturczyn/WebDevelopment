@@ -53,8 +53,8 @@ Po wejsciu na stronę czatu nie mamy widoku czatu, tylko widok użytkowników.
  komunikat o wybraniu użytkownika
 
 Po wybraniu użytkownika, ten użytkwonik musi być podświetlony.
-- po kliknięciu po prostu zmienmy kolor temu elementowi HTML
-Po wybraniu użytkownika wyświetlamy czat (po ponownym kliknięciu wybranego użytkownika ni sie nie dzieje).
+- wyświetlamy jego dane na oknie czatu
+Po wybraniu użytkownika wyświetlamy czat (po ponownym kliknięciu wybranego użytkownika zamykamy czat, wyświetlając odpowiedni komunikat).
 - po wybraniu go, musimy sięgnąć do bazy, załadować ostatnie wiadomości i je wyświetlić (możnaby tu cache'ować wiadomości, aby nie pobierać ich z bazy za każdym razem)
 CACHE'owanie: zrobimy sobie strukturę danych (Map bodajże, słownik), gdzie będziemy zapisywać wiadomości pobrane z bazy, dla każdego użytkownika pobierzemy po sto ostatnich wiadomości (na razie nie umożliwimy mu porania daleszej historii)
 
