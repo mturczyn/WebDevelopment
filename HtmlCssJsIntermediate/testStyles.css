@@ -8,6 +8,19 @@ html, body{
 	margin-top:30vh;
 }
 
+.flashing-animation {
+	animation-duration: 1s;
+	animation-name:	flashing-animation;
+	animation-direction: alternate;
+	animation-iteration-count: infinite;
+}
+
+@keyframes flashing-animation {
+	100% {
+		background: red;
+	}
+}
+
 .centered-animation {
 	animation: 1s slide-animation
 }

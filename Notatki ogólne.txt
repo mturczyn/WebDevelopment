@@ -1,3 +1,18 @@
 Bootstrap zawiera style dla wielu elementów HTML.
 
 Należy uważać na zagnieżdżone zpapytania HTTP, ponieważ w takiej sytuacji, po tym jak wykona się wewnętrzne zapytanie i zwróci odpowidź (i spodziewamy sie, że się wyświetli ta strona), kończy się to zewnętrzne zapytanie i wracamy znów do oryginalnej strony.
+
+PRZENOSZENIE KATALOGU Z PROJEKTEM DO NOWEJ LOKALIZACJI
+
+Po przeniesieniu atalogu z projektem i podpięciu pod inną solucję wystąpiły problemy:
+IIS Express:
+- używając pod tym samym portem (SSL, skonfigurowanym w launchSettings.json) mieliśmy kłopot, bo jak łączyliśmy się po HTTPS (czyli z SSL), mieliśmy ERR_CONNECTION_RESET. Dopiero zmiana portu SSL w pliku launchSettings.json pomogła.
+Jednak pozostaje pytanie, jak "wyczyścić" stary port i uzywać go w projekcie w nowej lokalizacji.
+
+Błąd ERR_CONNECTION_RESET był spowodowany tym, że nie mieliśmy już cerrtyfikatu dla 44325, co powoduje reset połączenia HTTPS na Windowsie, stąd błąd.
+Należało jedynie dodać spowrotem certyfikat dla 44325 poleceniem:
+netsh http add sslcert ipport= 0.0.0.0:44325 certhash=e3748c32b5865a38750d698daee083a96b22365b appid={214124cd-d05b-4309-9af9-9caa44b2b74a
+
+Lokalny IIS:
+- ciągle twierdzi, że trzeba utworzyć witrynę o opdoiwednim porcie w IIS, ale my już tą iwtrynę tworzyliśmy w ramach projektu, przed przeniesiem go w inną lokalizcję.
+ROZWIĄZANIE: najprościej usunąć starą witrynę i stworzyć nową.
