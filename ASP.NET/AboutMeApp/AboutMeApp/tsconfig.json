@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    /*Raise error on expressions and declarations with an implied any type.*/
+    "noImplicitAny": true,
+    /*Do not emit outputs if any errors were reported.*/
+    "noEmitOnError": true,
+    "removeComments": false,
+    /*Generates corresponding .map file.*/
+    "sourceMap": true,
+    /* Targetuje najnowszy ECMAScript */
+    "target": "ESNext"
+  },
+  "exclude": [
+    "node_modules",
+    "wwwroot"
+  ],
+  "compileOnSave": true
+}

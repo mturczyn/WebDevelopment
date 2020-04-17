@@ -68,8 +68,11 @@ namespace MvcMovie.Controllers
       {
         return NotFound();
       }
-
-      return View(movie);
+      var statusCode = System.Net.HttpStatusCode.VariantAlsoNegotiates;
+      // Różne sposoby zwracania odpowiedzi z róznymi kodami HTTP.
+      return StatusCode(231);
+      //return Ok("some result");
+      //return View(movie);
     }
 
     // GET: Movies/Create

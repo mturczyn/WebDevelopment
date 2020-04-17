@@ -1,3 +1,14 @@
+ZALECANA/DOMYŚLNA STRUKTURA PLIKÓW STRONY INTERNETOWEJ
+Mamy zalecaną struktue plików strony, która jest następująca:
+	Zaleca się taką strukturę plików:
+	Katalog z plikami strony
+	- index.html - zazwyczaj strona główna, homepage
+	- images - katalog z obrazkami/mediami
+	- styles - katalog ze stylami
+	- scripts - katlog z plikami JS
+
+Co ciekawe, bez żadnych routingów, ASP.NET zakłada taką strukturę plików, gdzie głównym katalogiem jest wwwroot. Więc domyślnie, bez żadnych dodatkowych ustawień, ASP.NET szuka strony wwwroot/index.html i ją zwraca jako rezultat zapytania. Dopiero dodatkowe ustawienia, takie jak routingi, mapowania endpointów zmieniają to działanie.
+
 Bootstrap zawiera style dla wielu elementów HTML.
 
 Należy uważać na zagnieżdżone zpapytania HTTP, ponieważ w takiej sytuacji, po tym jak wykona się wewnętrzne zapytanie i zwróci odpowidź (i spodziewamy sie, że się wyświetli ta strona), kończy się to zewnętrzne zapytanie i wracamy znów do oryginalnej strony.

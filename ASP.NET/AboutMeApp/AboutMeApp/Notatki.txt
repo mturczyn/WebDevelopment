@@ -1,0 +1,8 @@
+﻿Trzeba zainstalować paczki:
+- Microsoft.TypeScript.MSBuild
+- Microsoft.AspNetCore.StaticFiles
+
+Następnie trzeba też dodać konfigurację, jak kompilować źródła TSowe.
+W tym celu dodajemy do projektu plik tsconfig.json (w VSie jest szablon do niego pod nazwą "TypeScript configruation file").
+
+Następnie dodajemy plk konfiguracyjny managera paczek dla JavaScriptowych języków. Używamy najpopularniejszego npm (Node Package Manager). Spowoduje on utworzenie katalogu npm w Dependencies.

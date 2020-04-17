@@ -1,10 +1,11 @@
-﻿using System;
+﻿using System.Web;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MvcMovie.Models;
+using System.Web.Http;
 
 namespace MvcMovie.Controllers
 {
@@ -12,6 +13,7 @@ namespace MvcMovie.Controllers
   {
     public IActionResult Index()
     {
+      //throw new HttpResponseException(System.Net.HttpStatusCode.NotFound);
       return View();
     }
 
